@@ -1,0 +1,24 @@
+{
+  "name": "forsetti-ah-frontend",
+  "version": "1.0.0",
+  "description": "Authors Haven - A Social platform for the creative at heart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/forsetti-ah-frontend.git"
+  },
+  "keywords": [
+    "Authors-haven",
+    "React",
+    "Redux"
+  ],
+  "author": "Team forsetti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela/forsetti-ah-frontend/issues"
+  },
+  "homepage": "https://github.com/andela/forsetti-ah-frontend#readme"
+}
