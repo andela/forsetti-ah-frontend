@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/index.scss';
 import ninja from '../assets/images/ninja.jpg';
 import { increment, decrement } from '../actions';
 
 const UserName = () => <h2>Forsetti</h2>;
 
-const Avatar = () => <img src={ninja} alt="ninja" />;
+const Avatar = () => <img src={ninja} alt='ninja' />;
 
 export class UserProfile extends Component {
   increment = () => {
@@ -28,22 +29,22 @@ export class UserProfile extends Component {
           <Avatar />
         </div>
 
-        <div className="counter">
+        <div className='counter'>
           <h2>Counter</h2>
           <div>
             <button
-              type="button"
+              type='button'
               onClick={this.decrement}
             >
             -
             </button>
             <span
-              className="count"
+              className='count'
             >
               { count }
             </span>
             <button
-              type="button"
+              type='button'
               onClick={this.increment}
             >
             +

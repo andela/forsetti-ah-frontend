@@ -1,8 +1,8 @@
 {
     "extends": "airbnb",
     "env": {
-        "node": true,    
-        "es6": true,    
+        "node": true,
+        "es6": true,
         "browser": true,
         "jest": true
     },
@@ -11,8 +11,14 @@
     "rules": {
         "max-len": [1, 120, 2, { "ignoreComments": true }],
         "react/prop-types": 0,
+        "jsx-quotes": ["error", "prefer-single"],
         "no-unused-vars": 0,
         "comma-dangle": 0,
+        "jsx-a11y/anchor-is-valid": [ "error", {
+        "components": [ "Link" ],
+        "specialLink": [ "to" ],
+        "aspects": [ "noHref", "invalidHref", "preferButton" ]
+        }],
         "react/jsx-filename-extension": [
             1,
             {
