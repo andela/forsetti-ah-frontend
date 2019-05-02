@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Userprofile from './components/UserProfile.jsx';
+import { Provider } from "react-redux";
+import Store from "./store/configure-store";
+import App from './App';
+
+const store = Store();
 
 ReactDOM.render(
-  <Userprofile />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
