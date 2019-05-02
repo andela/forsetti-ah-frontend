@@ -8,7 +8,7 @@ const UserName = () => <h2>Forsetti</h2>;
 
 const Avatar = () => <img src={ninja} alt="ninja" />;
 
-class UserProfile extends Component {
+export class UserProfile extends Component {
   increment = () => {
     const { increment: increments } = this.props;
     increments();
