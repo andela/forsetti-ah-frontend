@@ -1,4 +1,4 @@
-import { example } from '../action-types';
+import example from '../action-types';
 
 const { INCREMENT, DECREMENT } = example;
 
