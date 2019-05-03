@@ -1,6 +1,6 @@
-describe('Test for profiles component', () => {
+describe('Test for Not Found component', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/*');
     });
     it('Header should be in the DOM', () => {
         cy.get('h1')

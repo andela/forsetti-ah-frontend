@@ -1,2 +1,9 @@
 @import "./base/settings.scss";
+@import "./base/base";
 @import "./components/NotFound.scss";
+@import "./components/common/header";
+@import "./components/common/footer";
+@import "./components/common/navbaritem";
+@import "./components/common/backdrop";
+@import "./components/sidedrawer";
+@import "./containers/landingpage";

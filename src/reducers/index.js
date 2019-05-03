@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import exampleReducer from './example.reducers';
+import { navBarReducer } from './navBarReducers';
 
 const Reducer = combineReducers({
-  example: exampleReducer
+  showSideDrawer: navBarReducer
 });
 
 export default Reducer;

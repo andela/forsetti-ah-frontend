@@ -1,3 +1,3 @@
-import example from './example.action-type';
+import navBarActionTypes from './navBarActionTypes';
 
-export default example;
+export default navBarActionTypes;
