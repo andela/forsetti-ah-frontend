@@ -9,6 +9,7 @@ import LoginModal from '../LoginModal';
 import LandingPageComponent from '../../containers/LandingPage';
 import NotFound from '../NotFound';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
+import AuthSocial from '../AuthSocial';
 
 const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
   const showSideDrawerHandler = () => {
@@ -27,6 +28,7 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
       <HeaderComponent clicked={showSideDrawerHandler} />
       <Switch>
         <Route path='/' component={LandingPageComponent} exact />
+        <Route path='/auth/social' component={AuthSocial} />
         <Route component={NotFound} />
       </Switch>
       <div className='footer'>

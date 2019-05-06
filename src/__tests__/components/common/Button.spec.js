@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Button } from '../../../components';
+import ButtonComponent from '../../../components/common/Button';
 
-describe('<Button />', () => {
-  it('renders correctly', () => {
-    const tree = renderer.create(<Button />).toJSON();
+describe('<ButtonComponent  />', () => {
+  it('renders the ButtonComponent  correctly', () => {
+    const tree = renderer.create(<ButtonComponent />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
