@@ -3,7 +3,11 @@ import {
   loginUser,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess
+  getUserDataSuccess,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser
 } from './authActions';
 import { openModalAction, closeModalAction } from './modalActions';
 import {
@@ -29,5 +33,9 @@ export {
   singleArticle,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess
+  getUserDataSuccess,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser
 };

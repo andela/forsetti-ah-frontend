@@ -3,7 +3,10 @@ import {
   LOGIN_USER_FAILURE,
   LOGIN_USER_BEGIN,
   GET_USER_DATA,
-  GET_USER_DATA_FAIL
+  GET_USER_DATA_FAIL,
+  SIGNUP_BEGIN,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE
 } from '../action-types';
 
 import axios from '../config/axiosConfig';
@@ -33,6 +36,20 @@ export const onLoginSuccessHandler = (response = {}, rememberLogin = false) => (
 export const onFailureHandler = response => ({
   type: LOGIN_USER_FAILURE,
   payload: response
+});
+
+const signupBegin = () => ({
+  type: SIGNUP_BEGIN
+});
+
+const signupSuccess = (user = {}) => ({
+  type: SIGNUP_SUCCESS,
+  payload: { user }
+});
+
+const signupFailure = (error = {}) => ({
+  type: SIGNUP_FAILURE,
+  payload: { error }
 });
 
 /**
@@ -97,9 +114,24 @@ const getUserData = userArray => (dispatch) => {
   return dispatch(getUserDataFailure());
 };
 
+const signUpUser = user => (dispatch) => {
+  dispatch(signupBegin());
+  axios.post('https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/signup', user)
+    .then((response) => {
+      dispatch(signupSuccess(response.data.data[0].user));
+    })
+    .catch((errors) => {
+      dispatch(signupFailure(errors.response.data.message));
+    });
+};
+
 export {
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser,
+  loginUser,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess,
-  loginUser
+  getUserDataSuccess
 };
