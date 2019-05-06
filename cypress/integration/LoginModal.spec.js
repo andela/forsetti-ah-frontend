@@ -17,4 +17,16 @@ describe('Test for login modal', () => {
 
     cy.get('.login-form-btn').click();
   });
+  it('Image should have alt as Google', () => {
+    cy.get('img').eq(1)
+    .should('have.attr', 'alt', 'Google');
+  });
+  it('Image should have alt as Facebook', () => {
+    cy.get('img').eq(2)
+    .should('have.attr', 'alt', 'Facebook');
+  });
+  it('Image should have alt as Twitter', () => {
+    cy.get('img').eq(3)
+    .should('have.attr', 'alt', 'Twitter');
+  });
 });

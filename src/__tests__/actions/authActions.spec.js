@@ -2,7 +2,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import axios from '../../config/axiosConfig';
 import { auth } from '../../action-types';
-import loginUser, { loadingStateHandler, onLoginSuccessHandler, onFailureHandler } from '../../actions/authActions';
+import { loginUser, loadingStateHandler, onLoginSuccessHandler, onFailureHandler } from '../../actions/authActions';
 
 const { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } = auth;
 
