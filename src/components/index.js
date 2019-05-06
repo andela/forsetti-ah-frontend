@@ -10,6 +10,8 @@ import NavBarItems from './common/NavBarItems';
 import Button from './common/Button';
 import LoginModalComponent from './LoginModal';
 import Articles from './Articles';
+import SocialLogin from './SocialLogin';
+import NotFound from './NotFound';
 
 export {
   HeaderComponent,
@@ -23,5 +25,7 @@ export {
   LoginModalComponent,
   CancelIcon,
   FormErrorText,
-  Articles
+  Articles,
+  SocialLogin,
+  NotFound
 };

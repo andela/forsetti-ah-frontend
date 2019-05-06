@@ -11,8 +11,8 @@ module.exports = {
     testEnvironment: 'jsdom',
     testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
     testPathIgnorePatterns: ['\\\\node_modules\\\\',
-      '<rootDir>/cypress',
-    ],
+    '<rootDir>/cypress',
+  ],
     testURL: 'http://localhost',
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
     verbose: true,
@@ -25,5 +25,5 @@ module.exports = {
       moduleNameMapper: {
         '^.+\\.(jpg|png|svg)$': 'babel-jest'
       },
-      modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js']
+      modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js', 'src/components/index.js']
   };

@@ -4,7 +4,13 @@ import article from './article.action-type';
 import modalTypes from './modalTypes';
 import articleActionTypes from './articleActionTypes';
 
-const { LOGIN_USER_BEGIN, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS } = auth;
+const {
+  LOGIN_USER_BEGIN,
+  LOGIN_USER_FAILURE,
+  LOGIN_USER_SUCCESS,
+  GET_USER_DATA_FAIL,
+  GET_USER_DATA
+} = auth;
 const { GET_SINGLE_ARTICLE, ARTICLE_NOT_FOUND } = article;
 const { OPEN_MODAL, CLOSE_MODAL } = modalTypes;
 const { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } = navBarActionTypes;
@@ -22,5 +28,7 @@ export {
   CLOSE_MODAL,
   GET_ARTICLES_BEGIN,
   GET_ARTICLES_FAIL,
-  GET_ARTICLES_SUCCESS
+  GET_ARTICLES_SUCCESS,
+  GET_USER_DATA,
+  GET_USER_DATA_FAIL
 };

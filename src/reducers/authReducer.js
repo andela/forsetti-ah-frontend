@@ -1,10 +1,13 @@
+import { GET_USER_DATA, GET_USER_DATA_FAIL } from '../action-types';
+
 const initialState = {
   isLoading: false,
   status: '',
   message: '',
   userObject: '',
   token: '',
-  rememberToken: false
+  rememberToken: false,
+  redirect: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -40,6 +43,20 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         status: action.payload.status,
         message: 'Something strange is happening.',
+      };
+
+    case GET_USER_DATA:
+      return {
+        ...state,
+        redirect: true,
+        user: action.payload.user,
+        token: action.payload.token
+      };
+    case GET_USER_DATA_FAIL:
+      return {
+        ...state,
+        redirect: false,
+        error: action.payload.error,
       };
     default:
       return {
