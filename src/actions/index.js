@@ -1,11 +1,17 @@
 import { showSideDrawerAction, hideSideDrawerAction } from './navBarActions';
-import loginUserRequest from './authActions';
 import { openModalAction, closeModalAction } from './modalActions';
+import {
+  signupBegin, signupSuccess, signupFailure, signUpUser, loginUser
+} from './authActions';
 
 export {
   showSideDrawerAction,
   hideSideDrawerAction,
-  loginUserRequest,
+  loginUser,
   openModalAction,
-  closeModalAction
+  closeModalAction,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser
 };

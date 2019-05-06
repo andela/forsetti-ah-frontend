@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CancelIcon  /> renders the CancelIcon  correctly 1`] = `
+<img
+  alt="Cancel icon"
+  className="cancel-icon"
+  src={
+    Object {
+      "canInstrument": true,
+      "createTransformer": [Function],
+      "getCacheKey": [Function],
+      "process": [Function],
+    }
+  }
+/>
+`;

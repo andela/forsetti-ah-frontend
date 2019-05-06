@@ -1,10 +1,24 @@
+import { auth } from '../action-types';
+
+const {
+  SIGNUP_BEGIN, SIGNUP_SUCCESS, SIGNUP_FAILURE
+} = auth;
+
 const initialState = {
   isLoading: false,
   status: '',
   message: '',
   userObject: '',
   token: '',
-  rememberToken: false
+  rememberToken: false,
+  redirect: false,
+  submit: false,
+  firstname: '',
+  lastname: '',
+  password: '',
+  email: '',
+  username: '',
+  errors: '',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -41,6 +55,26 @@ const authReducer = (state = initialState, action) => {
         status: action.payload.status,
         message: 'Something strange is happening.',
       };
+    case SIGNUP_BEGIN:
+      return {
+        ...state,
+        submit: true
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        submit: false,
+        redirect: true,
+        user: action.payload.user,
+      };
+    case SIGNUP_FAILURE:
+      return {
+        ...state,
+        submit: false,
+        redirect: false,
+        errors: action.payload.error
+      };
+
     default:
       return {
         ...state,

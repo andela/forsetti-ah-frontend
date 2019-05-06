@@ -49,7 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "express": "4.16.4",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "jest-css-modules-transform": "^2.1.1",
     "react-hot-loader": "4.8.4",
     "react-test-renderer": "^16.8.6",

@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 const ButtonComponent = ({
   role, onClick, type, disabled, className, children
-}) => ((
+}) => (
   <Button
     type={type}
     role={role}
@@ -13,6 +13,6 @@ const ButtonComponent = ({
   >
     {children}
   </Button>
-));
+);
 
 export default ButtonComponent;
