@@ -6,46 +6,60 @@ import { increment, decrement } from '../actions';
 
 const UserName = () => <h2>Forsetti</h2>;
 
-const Avatar = () => <img src={ninja} alt="ninja"/>;
+const Avatar = () => <img src={ninja} alt="ninja" />;
 
-class UserProfile  extends Component{
+class UserProfile extends Component {
   increment = () => {
-    this.props.increment();
+    const { increment: increments } = this.props;
+    increments();
   };
-    
+
   decrement = () => {
-    this.props.decrement();
+    const { decrement: decrements } = this.props;
+    decrements();
   };
 
-  render(){
+  render() {
+    const { count } = this.props;
     return (
-        <React.Fragment>
-            <div>
-                <UserName />
-                <Avatar />,
-            </div>
+      <React.Fragment>
+        <div>
+          <UserName />
+          <Avatar />
+        </div>
 
-            <div className="counter">
-                <h2>Counter</h2>
-                <div>
-                    <button onClick={this.decrement}>-</button>
-                    <span className="count">{this.props.count}</span>
-                    <button onClick={this.increment}>+</button>
-                </div>
-            </div>
-        </React.Fragment>
-        )
-    }
+        <div className="counter">
+          <h2>Counter</h2>
+          <div>
+            <button
+              type="button"
+              onClick={this.decrement}
+            >
+            -
+            </button>
+            <span
+              className="count"
+            >
+              { count }
+            </span>
+            <button
+              type="button"
+              onClick={this.increment}
+            >
+            +
+            </button>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
-const mapStateToProps = state => { 
-    return {
-      count: state.example.count };
-    }
-  
-  const mapDispatchToProps = {
-    increment,
-    decrement,
-  };
+const mapStateToProps = state => ({ count: state.example.count });
+
+const mapDispatchToProps = {
+  increment,
+  decrement
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
