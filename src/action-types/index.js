@@ -1,3 +1,5 @@
 import navBarActionTypes from './navBarActionTypes';
+import auth from './authActionTypes';
+import modalTypes from './modalTypes';
 
-export default navBarActionTypes;
+export { auth, navBarActionTypes, modalTypes };

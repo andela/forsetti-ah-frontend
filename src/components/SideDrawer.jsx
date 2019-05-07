@@ -1,10 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
 import VerticalListItems from './common/VerticalListItems';
 import NavBarItems from './common/NavBarItems';
 import Backdrop from './common/Backdrop';
+import { openModalAction, hideSideDrawerAction } from '../actions';
 
-const SideDrawer = ({ show, closed }) => {
+const SideDrawer = ({ show, closed, dispatch }) => {
+  const openLoginModal = () => {
+    dispatch(openModalAction());
+    dispatch(hideSideDrawerAction());
+  };
+
   const items = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -15,7 +22,7 @@ const SideDrawer = ({ show, closed }) => {
   ];
 
   const menuItems = [
-    { no: 1, text: 'Sign in' },
+    { no: 1, text: 'Sign in', onClick: openLoginModal },
     { no: 2, text: 'Sign up' }
   ];
 
@@ -44,5 +51,5 @@ const SideDrawer = ({ show, closed }) => {
     </React.Fragment>
   );
 };
-
-export default SideDrawer;
+const SideDrawerComponent = connect()(SideDrawer);
+export { SideDrawerComponent, SideDrawer };

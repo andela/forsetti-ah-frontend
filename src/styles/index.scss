@@ -1,4 +1,4 @@
-@import "./base/settings.scss";
+@import "./base/settings";
 @import "./base/base";
 @import "./components/NotFound.scss";
 @import "./components/common/header";
@@ -6,4 +6,11 @@
 @import "./components/common/navbaritem";
 @import "./components/common/backdrop";
 @import "./components/sidedrawer";
+@import "./components/common/Button";
+@import "./components/common/CancelIcon";
+@import "./components/common/Link";
+@import "./components/common/_ToastMessage.css";
+@import "./components/common/formErrorText";
+@import "./components/LoginForm";
+@import "./components/LoginModal";
 @import "./containers/landingpage";

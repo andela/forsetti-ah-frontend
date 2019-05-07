@@ -1,19 +1,25 @@
-import Header from './common/Header';
+import { HeaderComponent } from './common/Header';
 import Footer from './common/Footer';
 import VerticalListItems from './common/VerticalListItems';
 import HorizontalListItems from './common/HorizontalListItems';
+import CancelIcon from './common/CancelIcon';
 import Backdrop from './common/Backdrop';
-import SideDrawer from './SideDrawer';
+import FormErrorText from './common/FormErrorText';
+import { SideDrawerComponent } from './SideDrawer';
 import NavBarItems from './common/NavBarItems';
 import Button from './common/Button';
+import LoginModalComponent from './LoginModal';
 
 export {
-  Header,
+  HeaderComponent,
   Footer,
   VerticalListItems,
   HorizontalListItems,
   Backdrop,
-  SideDrawer,
+  SideDrawerComponent,
   NavBarItems,
-  Button
+  Button,
+  LoginModalComponent,
+  CancelIcon,
+  FormErrorText
 };

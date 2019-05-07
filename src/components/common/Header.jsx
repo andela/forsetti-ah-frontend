@@ -1,9 +1,14 @@
 import React from 'react';
-import { Row, Col, Button } from 'reactstrap';
+import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 import HorizontalListItems from './HorizontalListItems';
+import { openModalAction } from '../../actions';
+
 import NavBarItems from './NavBarItems';
 
-const Header = ({ clicked }) => {
+const Header = ({ clicked, dispatch }) => {
+  const openLoginModal = () => dispatch(openModalAction());
+
   const linkItems = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -14,7 +19,7 @@ const Header = ({ clicked }) => {
   ];
 
   const menuItems = [
-    { no: 1, text: 'Sign in' },
+    { no: 1, text: 'Sign in', onClick: openLoginModal },
     { no: 2, text: 'Sign up' }
   ];
 
@@ -36,4 +41,9 @@ const Header = ({ clicked }) => {
   );
 };
 
-export default Header;
+const HeaderComponent = connect()(Header);
+
+export {
+  HeaderComponent,
+  Header,
+};
