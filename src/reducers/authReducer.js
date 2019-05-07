@@ -12,6 +12,7 @@ const initialState = {
   token: '',
   rememberToken: false,
   redirect: false,
+  isloading: false,
   submit: false,
   firstname: '',
   lastname: '',
@@ -58,7 +59,8 @@ const authReducer = (state = initialState, action) => {
     case SIGNUP_BEGIN:
       return {
         ...state,
-        submit: true
+        submit: true,
+        isloading: true
       };
     case SIGNUP_SUCCESS:
       return {
@@ -66,13 +68,15 @@ const authReducer = (state = initialState, action) => {
         submit: false,
         redirect: true,
         user: action.payload.user,
+        isloading: false
       };
     case SIGNUP_FAILURE:
       return {
         ...state,
         submit: false,
         redirect: false,
-        errors: action.payload.error
+        errors: action.payload.error,
+        isloading: false
       };
 
     default:

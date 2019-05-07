@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { loginUserRequest } from '../actions';
+import { loginUser } from '../actions';
 import Button from './common/Button';
 import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
@@ -51,7 +51,7 @@ class LoginForm extends Component {
   processLogin = async () => {
     const { dispatch } = this.props;
     const { email, password, rememberLogin } = this.state;
-    await dispatch(loginUserRequest({ email, password }, rememberLogin));
+    await dispatch(loginUser({ email, password }, rememberLogin));
     const {
       auth: {
         status, message, rememberToken, token
