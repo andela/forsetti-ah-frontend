@@ -1,8 +1,6 @@
 import { navBarReducer, initialState } from '../../reducers/navBarReducers';
 
-import { navBarActionTypes } from '../../action-types';
-
-const { HIDE_SIDEDRAWER, SHOW_SIDEDRAWER } = navBarActionTypes;
+import { HIDE_SIDEDRAWER, SHOW_SIDEDRAWER } from '../../action-types';
 
 describe('navBarReducer', () => {
   it('should return initial state', () => {

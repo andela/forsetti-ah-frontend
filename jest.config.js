@@ -4,7 +4,10 @@ module.exports = {
     collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
     coverageDirectory: 'coverage',
     moduleFileExtensions: ['js', 'json', 'jsx'],
-    setupFiles: ['<rootDir>/enzyme.config.js'],
+    setupFiles: [
+      '<rootDir>/enzyme.config.js',
+      '<rootDir>/src/__mocks__/document.js',
+    ],
     testEnvironment: 'jsdom',
     testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
     testPathIgnorePatterns: ['\\\\node_modules\\\\',
@@ -12,7 +15,7 @@ module.exports = {
     ],
     testURL: 'http://localhost',
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
-    verbose: false,
+    verbose: true,
     transform: {
         '.+\\.(css|styl|less|sass|scss)$':
           '<rootDir>/node_modules/jest-css-modules-transform',
@@ -22,5 +25,5 @@ module.exports = {
       moduleNameMapper: {
         '^.+\\.(jpg|png|svg)$': 'babel-jest'
       },
-    modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js']
+      modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js']
   };

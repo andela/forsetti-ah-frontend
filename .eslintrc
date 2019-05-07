@@ -30,7 +30,8 @@
         "curly": [
             "error",
             "multi-line"
-        ]
+        ],
+        "react/no-danger": 0
     },
     "parserOptions": {
         "ecmaVersion": 2017,

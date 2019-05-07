@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => (
+const NotFound = ({ text = 'page' }) => (
   <div className='not-found'>
     <div className='notfound-bg' />
     <div className='notfound'>
@@ -10,12 +10,14 @@ const NotFound = () => (
       </div>
       <div className='notfound-404'>
         <h2>
-          The page you are searching for does not exist.
+          The
+          <span className='px-1'>{ text }</span>
+          you are searching for does not exist.
           <br />
           You may need to consider going back to our
-          {' '}
           <a
             href='/'
+            className='px-1'
           >
             Home Page
           </a>

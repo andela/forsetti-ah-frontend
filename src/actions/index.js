@@ -5,7 +5,9 @@ import {
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
-  getAritlces
+  getAritlces,
+  getSingleArticle,
+  singleArticle
 } from './articleActions';
 
 export {
@@ -17,5 +19,7 @@ export {
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
-  getAritlces
+  getAritlces,
+  getSingleArticle,
+  singleArticle
 };

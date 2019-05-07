@@ -1,7 +1,5 @@
-import { auth } from '../action-types';
+import { LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGIN_USER_BEGIN } from '../action-types';
 import axios from '../config/axiosConfig';
-
-const { LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGIN_USER_BEGIN } = auth;
 
 /**
  * Show loading state

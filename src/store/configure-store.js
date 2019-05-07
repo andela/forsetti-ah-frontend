@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunk from 'redux-thunk';
-import reducer from '../reducers';
+import { Reducer } from '../reducers';
 import { encryptData, decryptData } from './encryptStore';
 
 const saveToLocalStorage = (state) => {
@@ -29,7 +29,7 @@ const Store = () => {
   const storeEnhancers = [middlewares];
   const composedEnhancer = composeWithDevTools(...storeEnhancers);
   const store = createStore(
-    reducer,
+    Reducer,
     persistedState,
     composedEnhancer
   );

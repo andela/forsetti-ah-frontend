@@ -1,6 +1,4 @@
-import { modalTypes } from '../action-types';
-
-const { OPEN_MODAL, CLOSE_MODAL } = modalTypes;
+import { OPEN_MODAL, CLOSE_MODAL } from '../action-types';
 
 /**
  * open the modal

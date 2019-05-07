@@ -1,6 +1,4 @@
-import { articleActionTypes } from '../action-types';
-
-const { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } = articleActionTypes;
+import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../action-types';
 
 const initialState = {
   isLoading: false,

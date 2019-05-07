@@ -1,9 +1,7 @@
 import { articleReducer, initialState } from '../../reducers/articleReducers';
 
-import {articleActionTypes} from '../../action-types';
+import { GET_ARTICLES_BEGIN, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL } from '../../action-types';
 import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
-
-const { GET_ARTICLES_BEGIN, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL } = articleActionTypes;
 
 describe('articleReducers', () => {
   test('should return initial state', () => {

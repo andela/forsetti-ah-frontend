@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import HorizontalListItems from './HorizontalListItems';
 import { openModalAction } from '../../actions';
 import NavBarItems from './NavBarItems';
@@ -33,7 +34,9 @@ const Header = ({ clicked, dispatch }) => {
   return (
     <nav className='header d-flex justify-content-between'>
       <div className='header-logo'>
-        <h1 className='header-logo-text'>Authors Haven</h1>
+        <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
+          <h1 className='header-logo-text'>Authors Haven</h1>
+        </Link>
       </div>
       <div className='header-links'>
         <HorizontalListItems items={linkItems} className='header-links-list' />

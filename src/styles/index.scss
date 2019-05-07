@@ -6,7 +6,7 @@
 @import "./components/common/navbaritem";
 @import "./components/common/backdrop";
 @import "./components/sidedrawer";
-@import "./components/common/Button";
+@import "./components/common/button";
 @import "./components/common/CancelIcon";
 @import "./components/common/Link";
 @import "./components/common/_ToastMessage.css";
@@ -16,3 +16,5 @@
 @import "./containers/landingpage";
 @import "./components/articles.scss";
 @import "./components/common/article-list.scss";
+@import "./components/common/button";
+@import "./components/Articlebody";
