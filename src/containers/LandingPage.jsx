@@ -6,7 +6,8 @@ import {
   HeaderComponent,
   Footer,
   SideDrawerComponent,
-  LoginModalComponent
+  LoginModalComponent,
+  SignUpModalComponent
 } from '../components';
 
 class LandingPage extends Component {
@@ -23,11 +24,13 @@ class LandingPage extends Component {
   render() {
     const {
       showSideDrawer: { showSideDrawer },
-      modal: { showModal }
+      modal: { showModal, displayModal }
     } = this.props;
+    console.log(this.props);
     return (
       <div className='landing-page'>
         <LoginModalComponent isOpen={showModal} />
+        <SignUpModalComponent isOpen={displayModal} />
         <SideDrawerComponent show={showSideDrawer} closed={this.hideSideDrawerHandler} />
         <Row>
           <Col lg={{ size: 12 }}>

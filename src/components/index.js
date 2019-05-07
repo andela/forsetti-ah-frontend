@@ -9,6 +9,7 @@ import { SideDrawerComponent } from './SideDrawer';
 import NavBarItems from './common/NavBarItems';
 import Button from './common/Button';
 import LoginModalComponent from './LoginModal';
+import SignUpModalComponent from './SignUpModal';
 
 export {
   HeaderComponent,
@@ -21,5 +22,6 @@ export {
   Button,
   LoginModalComponent,
   CancelIcon,
-  FormErrorText
+  FormErrorText,
+  SignUpModalComponent
 };

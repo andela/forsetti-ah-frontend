@@ -57,27 +57,28 @@ const authReducer = (state = initialState, action) => {
       };
     case SIGNUP_BEGIN:
       return {
-        ...state,
-        submit: true
+        submit: true,
+        isLoading: true
       };
     case SIGNUP_SUCCESS:
       return {
-        ...state,
         submit: false,
         redirect: true,
-        user: action.payload.user,
+        user: action.payload.userObject,
+        message: action.payload.message,
+        token: action.payload.token,
+        isLoading: false
       };
     case SIGNUP_FAILURE:
       return {
-        ...state,
         submit: false,
         redirect: false,
-        errors: action.payload.error
+        message: action.message,
+        isLoading: false
       };
 
     default:
       return {
-        ...state,
         isLoading: false
       };
   }

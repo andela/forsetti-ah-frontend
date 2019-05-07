@@ -1,6 +1,8 @@
 const loginModalTypes = {
   OPEN_MODAL: 'OPEN_MODAL',
   CLOSE_MODAL: 'CLOSE_MODAL',
+  OPEN_SIGNUP_MODAL: 'OPEN_SIGNUP_MODAL',
+  CLOSE_SIGNUP_MODAL: 'CLOSE_SIGNUP_MODAL'
 };
 
 export default loginModalTypes;

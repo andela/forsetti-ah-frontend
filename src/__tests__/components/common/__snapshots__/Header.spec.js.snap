@@ -60,6 +60,7 @@ exports[`<Header /> renders correctly 1`] = `
           aria-label={null}
           className="navbar-button-item btn btn-primary"
           onClick={[Function]}
+          type="button"
         >
           Sign up
         </button>

@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
 import HorizontalListItems from './HorizontalListItems';
-import { openModalAction } from '../../actions';
+import { openModalAction, openSignupModalAction } from '../../actions';
 
 import NavBarItems from './NavBarItems';
 
 const Header = ({ clicked, dispatch }) => {
   const openLoginModal = () => dispatch(openModalAction());
+  const openSignupModal = () => dispatch(openSignupModalAction());
 
   const linkItems = [
     { no: 1, name: 'Tech' },
@@ -20,7 +21,7 @@ const Header = ({ clicked, dispatch }) => {
 
   const menuItems = [
     { no: 1, text: 'Sign in', onClick: openLoginModal },
-    { no: 2, text: 'Sign up' }
+    { no: 2, text: 'Sign up', onClick: openSignupModal }
   ];
 
   return (

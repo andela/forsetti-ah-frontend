@@ -4,7 +4,7 @@
   "description": "A Social platform for the creative at heart",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:watch": "jest --watchAll",
     "build": "webpack --config webpack.prod.js",
     "heroku-postbuild": "npm run build",
@@ -53,6 +53,7 @@
     "jest-css-modules-transform": "^2.1.1",
     "react-hot-loader": "4.8.4",
     "react-test-renderer": "^16.8.6",
+    "validator": "^10.11.0",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.1",
     "webpack-dev-middleware": "3.6.2",

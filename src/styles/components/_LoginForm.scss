@@ -8,7 +8,7 @@
 
     &-remember {
       color: $primary-color;
-      margin-left: 1.5rem; 
+      margin-left: 1.5rem;
     }
   }
 
@@ -41,6 +41,7 @@
     margin: 3rem auto;
     text-transform: uppercase;
     width: 9rem;
+    font-size: 14px;
 
     @media screen and (max-width:425px) {
       margin: 3rem auto;

@@ -3,7 +3,7 @@ import { auth } from '../../action-types';
 
 const { SIGNUP_BEGIN, SIGNUP_SUCCESS, SIGNUP_FAILURE } = auth;
 
-const user = {
+const userObject = {
   firstname: 'John',
   lastname: 'Doe',
   username: 'Johnny4444',
@@ -16,7 +16,7 @@ const error = {};
 describe('authReducer', () => {
   it('should return initial state', () => {
     expect(authReducer(undefined, {})).toEqual({
-      ...initialState
+      isLoading: false,
     });
   });
 
@@ -24,31 +24,34 @@ describe('authReducer', () => {
     expect(authReducer(initialState, {
       type: SIGNUP_BEGIN
     })).toEqual({
-      ...initialState,
-      submit: true
+      submit: true,
+      isLoading: true
     });
   });
 
   it('should handle SIGNUP_SUCCESS', () => {
     expect(authReducer(initialState, {
       type: SIGNUP_SUCCESS,
-      payload: { user }
+      payload: { userObject, message: 'Signed up successfully', token: '1234567890' }
     })).toEqual({
-      ...initialState,
+      submit: false,
       redirect: true,
-      user,
+      user: userObject,
+      message: 'Signed up successfully',
+      token: '1234567890',
+      isLoading: false
     });
   });
 
   it('should handle SIGNUP_FAILURE', () => {
     expect(authReducer(initialState, {
       type: SIGNUP_FAILURE,
-      payload: { error }
+      message: 'Something very strange happened'
     })).toEqual({
-      ...initialState,
       redirect: false,
       submit: false,
-      errors: {},
+      message: 'Something very strange happened',
+      isLoading: false
     });
   });
 });

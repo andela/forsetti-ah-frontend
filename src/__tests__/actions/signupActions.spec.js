@@ -19,7 +19,9 @@ const user = {
   password: 'johnny29383'
 };
 
-describe('Sign up Auth Actions', () => {
+const token = 'mynameis7t890w084';
+
+describe('Signup Auth Actions', () => {
   it('should begin the signup actions', () => {
     const action = signupBegin();
     expect(action).toEqual({
@@ -31,9 +33,7 @@ describe('Sign up Auth Actions', () => {
     const action = signupSuccess();
     expect(action).toEqual({
       type: 'SIGNUP_SUCCESS',
-      payload: {
-        user: {}
-      }
+      payload: {}
     });
   });
 
@@ -41,9 +41,7 @@ describe('Sign up Auth Actions', () => {
     const action = signupFailure();
     expect(action).toEqual({
       type: 'SIGNUP_FAILURE',
-      payload: {
-        error: {}
-      }
+      message: {}
     });
   });
 

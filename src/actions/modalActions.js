@@ -1,6 +1,11 @@
 import { modalTypes } from '../action-types';
 
-const { OPEN_MODAL, CLOSE_MODAL } = modalTypes;
+const {
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  OPEN_SIGNUP_MODAL,
+  CLOSE_SIGNUP_MODAL
+} = modalTypes;
 
 /**
  * open the modal
@@ -10,12 +15,25 @@ const openModalAction = () => ({
   type: OPEN_MODAL,
 });
 
+const openSignupModalAction = () => ({
+  type: OPEN_SIGNUP_MODAL,
+});
+
+const closeSignUpModalAction = () => ({
+  type: CLOSE_SIGNUP_MODAL
+});
+
 /**
  * close the modal
- * @returns {obect} action object
+ * @returns {object} action object
  */
 const closeModalAction = () => ({
   type: CLOSE_MODAL,
 });
 
-export { openModalAction, closeModalAction };
+export {
+  openModalAction,
+  closeModalAction,
+  openSignupModalAction,
+  closeSignUpModalAction
+};
