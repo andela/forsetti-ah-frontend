@@ -1,5 +1,11 @@
 import { showSideDrawerAction, hideSideDrawerAction } from './navBarActions';
 import {
+  openModalAction,
+  closeModalAction,
+  openSignupModalAction,
+  closeSignUpModalAction
+} from './modalActions';
+import {
   loginUser,
   getUserData,
   getUserDataFailure,
@@ -9,7 +15,6 @@ import {
   signupFailure,
   signUpUser
 } from './authActions';
-import { openModalAction, closeModalAction } from './modalActions';
 import {
   loadingStateHandler,
   getAritlcesSuccessHandler,
@@ -33,7 +38,9 @@ export {
   singleArticle,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess
+  getUserDataSuccess,
+  openSignupModalAction,
+  closeSignUpModalAction,
   signupBegin,
   signupSuccess,
   signupFailure,

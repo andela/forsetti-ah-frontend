@@ -1,23 +1,22 @@
-
 .modal-dialog{
     max-width: 40rem;
-    margin-top: 150px;
-}
-
-.modal-header{
-  border-bottom: $white-color;
-  color: $secondary-color;
 }
 
 .signup-form-group{
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 .signup-form-input{
-  border: 1px solid $primary-color;
   border-radius: 0;
   height: 40px;
-  width: 22.5rem;
+  width: 24rem;
+}
+
+.signup-form-header-text {
+  color: $primary-color;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 ::placeholder {
@@ -30,39 +29,14 @@
   border: 3px solid $primary-color;
   border-radius: 0;
   color: $white-color;
-  font-size: 10px;
   font-weight: bold;
-  width: 5.25rem;
+  font-size: 0.7rem;
+  width: 6rem;
 }
 
 .signup-form-header{
   color: $secondary-color;
   text-align: center;
-}
-
-.signup-form-button{
-  background-color: $primary-color;
-  border-radius: 4px;
-  color: $white-color;
-  font-size: 10px;
-  font-weight: bold;
-  height: 40px;
-  margin: 30px;
-  margin-left: 150px;
-  width: 5.25rem;
-}
-
-.cancel-icon {
-  display: inline-block;
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  width: 2rem;
-  height: 2rem;
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 @media screen and (max-width: 450px) {
@@ -72,9 +46,4 @@
 
   .modal-dialog{ margin-top: 50px; }
 
-  .signup-form-button{
-    margin: 30px;
-    margin-left: 0;
-    width: 100%;
- }
 }

@@ -1,4 +1,10 @@
-import { GET_USER_DATA, GET_USER_DATA_FAIL, SIGNUP_BEGIN, SIGNUP_SUCCESS, SIGNUP_FAILURE } from '../action-types';
+import {
+  GET_USER_DATA,
+  GET_USER_DATA_FAIL,
+  SIGNUP_BEGIN,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE
+} from '../action-types';
 
 const initialState = {
   isLoading: false,
@@ -68,30 +74,28 @@ const authReducer = (state = initialState, action) => {
       };
     case SIGNUP_BEGIN:
       return {
-        ...state,
         submit: true,
-        isloading: true
+        isLoading: true
       };
     case SIGNUP_SUCCESS:
       return {
-        ...state,
         submit: false,
         redirect: true,
-        user: action.payload.user,
-        isloading: false
+        user: action.payload.userObject,
+        message: action.payload.message,
+        token: action.payload.token,
+        isLoading: false
       };
     case SIGNUP_FAILURE:
       return {
-        ...state,
         submit: false,
         redirect: false,
-        errors: action.payload.error,
-        isloading: false
+        message: action.message,
+        isLoading: false
       };
 
     default:
       return {
-        ...state,
         isLoading: false
       };
   }

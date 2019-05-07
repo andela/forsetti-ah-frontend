@@ -29,9 +29,9 @@ const payload = {
 
 describe('Auth reducer', () => {
   it('should return initial state', () => {
-    expect(authReducer(undefined, { type: '@@INIT'})).toEqual(
-      initialState
-    );
+    expect(authReducer(undefined, { type: '@@INIT' })).toEqual({
+      isLoading: false
+    });
   });
 
   it('should return LOGIN_USER_BEGIN state for loading state', () => {

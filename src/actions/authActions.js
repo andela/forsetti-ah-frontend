@@ -42,14 +42,14 @@ const signupBegin = () => ({
   type: SIGNUP_BEGIN
 });
 
-const signupSuccess = (user = {}) => ({
+const signupSuccess = (response = {}) => ({
   type: SIGNUP_SUCCESS,
-  payload: { user }
+  payload: response
 });
 
-const signupFailure = (error = {}) => ({
+const signupFailure = (message = {}) => ({
   type: SIGNUP_FAILURE,
-  payload: { error }
+  message
 });
 
 /**
@@ -114,15 +114,17 @@ const getUserData = userArray => (dispatch) => {
   return dispatch(getUserDataFailure());
 };
 
-const signUpUser = user => (dispatch) => {
-  dispatch(signupBegin());
-  axios.post('https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/signup', user)
-    .then((response) => {
-      dispatch(signupSuccess(response.data.data[0].user));
-    })
-    .catch((errors) => {
-      dispatch(signupFailure(errors.response.data.message));
-    });
+const signUpUser = user => async (dispatch) => {
+  try {
+    dispatch(signupBegin());
+    const response = await axios.post('/auth/signup', user);
+    const { user: userObject, token } = response.data.data[0];
+    const { message } = response.data;
+    return dispatch(signupSuccess({ userObject, message, token }));
+  } catch (err) {
+    const { message } = err.response.data;
+    return dispatch(signupFailure(message));
+  }
 };
 
 export {

@@ -12,6 +12,7 @@ import LoginModalComponent from './LoginModal';
 import Articles from './Articles';
 import SocialLogin from './SocialLogin';
 import NotFound from './NotFound';
+import SignUpModalComponent from './SignUpModal';
 
 export {
   HeaderComponent,
@@ -27,5 +28,6 @@ export {
   FormErrorText,
   Articles,
   SocialLogin,
-  NotFound
+  NotFound,
+  SignUpModalComponent
 };

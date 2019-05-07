@@ -14,7 +14,7 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZC…Dg3fQ.wzAZb7Kr';
 describe('authReducer', () => {
   it('should return initial state', () => {
     expect(authReducer(undefined, {})).toEqual({
-      ...initialState
+      isLoading: false
     });
   });
   it('should handle GET_USER_DATA', () => {

@@ -9,7 +9,7 @@ describe('Modal', () => {
     });
   });
 
-  it('should return true OPEN_MODAL action', () => {
+  it('should return true for OPEN_MODAL action', () => {
     expect(modalReducer(initialState, {
       type: OPEN_MODAL,
     })).toEqual({

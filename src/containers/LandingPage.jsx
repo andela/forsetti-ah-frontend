@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
-import { getAritlces } from '../actions';
-import { Articles } from '../components';
+import { showSideDrawerAction, hideSideDrawerAction, getAritlces } from '../actions';
+import {
+  HeaderComponent,
+  Footer,
+  SideDrawerComponent,
+  LoginModalComponent,
+  SignUpModalComponent,
+  Articles
+} from '../components';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -31,8 +38,11 @@ class LandingPage extends Component {
 
   render() {
     const {
-      articles
+      articles,
+      showSideDrawer: { showSideDrawer },
+      modal: { showModal, displayModal }
     } = this.props;
+
     return (
       <div className='landing-page'>
         <div className='container landing'>
@@ -70,6 +80,23 @@ class LandingPage extends Component {
             <div className='col-md-4' />
           </div>
         </div>
+        <LoginModalComponent isOpen={showModal} />
+        <SignUpModalComponent isOpen={displayModal} />
+        <SideDrawerComponent show={showSideDrawer} closed={this.hideSideDrawerHandler} />
+        <Row>
+          <Col lg={{ size: 12 }}>
+            <HeaderComponent clicked={this.showSideDrawerHandler} />
+          </Col>
+        </Row>
+        <Row className='articles'>
+          <Col sm={{ size: 6 }} />
+          <Col sm={{ size: 4 }} />
+        </Row>
+        <Row className='footer'>
+          <Col>
+            <Footer />
+          </Col>
+        </Row>
       </div>
     );
   }
@@ -77,7 +104,8 @@ class LandingPage extends Component {
 
 const mapStateToProps = (state) => {
   const { articles } = state;
-  return { articles };
+  const { showSideDrawer, modal } = state;
+  return { articles, showSideDrawer, modal };
 };
 const mapDispatchToProps = dispatch => ({
   getAllArticles: (page) => {
