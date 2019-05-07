@@ -19,7 +19,7 @@ const user = {
   password: 'johnny29383'
 };
 
-describe('Sign up Auth Actions', () => {
+describe('Signup Auth Actions', () => {
   it('should begin the signup actions', () => {
     const action = signupBegin();
     expect(action).toEqual({

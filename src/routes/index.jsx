@@ -1,17 +1,15 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { LandingPageComponent } from '../containers/LandingPage';
-import NotFound from '../components/NotFound';
-import Article from '../containers/Article';
-import { SignUp } from '../components/SignUp';
+import SignUpDefault from '../containers/SignUp';
+import NotFound from '../containers/NotFoundPage';
 
 const Routes = () => (
   <Fragment>
     <Router>
       <Switch>
         <Route path='/' component={LandingPageComponent} exact />
-        <Route exact path='/article/:slug' component={Article} />
-        <Route exact path='/signup' component={SignUp} />
+        <Route path='/signup' component={props => <SignUpDefault />} />
         <Route component={NotFound} />
       </Switch>
     </Router>

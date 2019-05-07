@@ -23,7 +23,8 @@ describe('authReducer', () => {
       type: SIGNUP_BEGIN
     })).toEqual({
       ...initialState,
-      submit: true
+      submit: true,
+      isloading: true
     });
   });
 
@@ -35,6 +36,7 @@ describe('authReducer', () => {
       ...initialState,
       redirect: true,
       user,
+      isloading: false
     });
   });
 
@@ -47,6 +49,7 @@ describe('authReducer', () => {
       redirect: false,
       submit: false,
       errors: {},
+      isloading: false
     });
   });
 });

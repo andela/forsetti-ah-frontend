@@ -33,7 +33,7 @@ export {
   singleArticle,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess,
+  getUserDataSuccess
   signupBegin,
   signupSuccess,
   signupFailure,
