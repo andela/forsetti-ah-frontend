@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
 import { Link, Redirect, withRouter } from 'react-router-dom';
+import {
+  Button,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
 import HorizontalListItems from './HorizontalListItems';
 import {
   openModalAction,
@@ -10,6 +16,7 @@ import {
 } from '../../actions';
 import { notificationBlue } from '../../assets';
 import NavBarItems from './NavBarItems';
+import profilepix from '../../assets/svg/profilepix.svg';
 
 const Header = (props) => {
   const {
@@ -62,27 +69,57 @@ const Header = (props) => {
       <div className='header-links'>
         <HorizontalListItems items={linkItems} className='header-links-list' />
       </div>
-      <div className='header-nav row'>
-        <div className='row mr-3 mr-md-2 d-sm-none d-md-block'>
-          { token && (
-          <Link to='/profiles/notification' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
-            <p className='d-sm-none d-md-block notification-icon'>
-              <img src={notificationBlue} alt='notification' className='rounded-0 ' style={{ width: '2rem' }} />
-              <span className=''>
-                {count}
-              </span>
-            </p>
-          </Link>
-          )}
-        </div>
+      <div className='header-nav'>
         <div className='row mr-1 mr-md-2'>
-          <NavBarItems menuItems={menuItems} className='header-nav-menu' />
+          {
+          token && (
+          <div className='mr-3 mr-md-2 d-sm-none d-md-block'>
+            <Link to='/profiles/notification' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
+              <p className='d-sm-none d-md-block notification-icon'>
+                <img src={notificationBlue} alt='notification' className='rounded-0 ' style={{ width: '2rem' }} />
+                <span className=''>
+                  {count}
+                </span>
+              </p>
+            </Link>
+          </div>
+          )
+          }
+          <div className={`${token ? 'col-md-6 text-center' : 'col-md-12'}`}>
+            <NavBarItems menuItems={menuItems} className='header-nav-menu' />
+          </div>
+          {
+            token && (
+            <div className='col-md-2 text-md-left text-center d-none d-md-block pb-2'>
+              <UncontrolledDropdown>
+                <DropdownToggle style={{ background: 'none', border: 'none' }}>
+                  <img
+                    src={profilepix}
+                    alt='profilephoto'
+                    className='header-nav-menu rounded-0'
+                    style={{ width: '2rem' }}
+                  />
+                </DropdownToggle>
+                <DropdownMenu>
+                  <Link to='/profile/' style={{ color: 'black', fontSize: '1rem', textDecoration: 'none' }}>
+                    <DropdownItem style={{ backgroundColor: 'transparent', color: 'black' }}>Profile</DropdownItem>
+                  </Link>
+                  <DropdownItem divider />
+                  <DropdownItem>Logout</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </div>
+            )
+          }
+
         </div>
         <Button onClick={clicked} className='header-nav-hamburger col'>
           <i className='fas fa-bars' />
         </Button>
+
       </div>
     </nav>
+
   );
 };
 

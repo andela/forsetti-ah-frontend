@@ -54,7 +54,7 @@ class LoginForm extends Component {
     await dispatch(loginUser({ email, password }, rememberLogin));
     const {
       auth: {
-        status, message, rememberToken, token
+        status, message, rememberToken, token, userObject
       }
     } = this.props;
     if (status === 200) {

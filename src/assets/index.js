@@ -10,6 +10,7 @@ import hands from './svg/hands.svg';
 import user from './svg/user.svg';
 import notification from './svg/notification.svg';
 import notificationBlue from './svg/notification (1).svg';
+import imageUploadIcon from './svg/profilepix.svg';
 
 export {
   google,
@@ -23,5 +24,6 @@ export {
   hands,
   user,
   notification,
-  notificationBlue
+  notificationBlue,
+  imageUploadIcon
 };

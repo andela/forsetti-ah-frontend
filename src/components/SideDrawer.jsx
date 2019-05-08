@@ -57,14 +57,13 @@ const SideDrawer = ({
     if (token) {
       return menuItems.push(
         { no: 1, text: 'Write Post', onClick: () => closeSidebar('/article/new') },
-        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') }
+        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') },
+        { no: 3, text: 'Profile', onClick: () => closeSidebar('/profile') }
       );
     }
-    return (
-      menuItems.push(
-        { no: 1, text: 'Sign in', onClick: openLoginModal },
-        { no: 2, text: 'Sign up', onClick: openSignUpModal }
-      )
+    return menuItems.push(
+      { no: 1, text: 'Sign in', onClick: openLoginModal },
+      { no: 2, text: 'Sign up', onClick: openSignUpModal }
     );
   };
 
@@ -96,5 +95,5 @@ const SideDrawer = ({
     </React.Fragment>
   );
 };
-const SideDrawerComponent = connect()(withRouter(SideDrawer));
+const SideDrawerComponent = connect()(withRouter((SideDrawer)));
 export { SideDrawerComponent, SideDrawer };
