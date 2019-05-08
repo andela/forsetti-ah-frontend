@@ -53,6 +53,7 @@ module.exports = {
   ],
   output: {
     filename: 'index.bundle.js',
+    publicPath: process.env.ASSET_PATH || '/',
     path: path.resolve(__dirname, 'build')
   }
 };
