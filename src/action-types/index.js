@@ -30,5 +30,8 @@ export {
   GET_ARTICLES_FAIL,
   GET_ARTICLES_SUCCESS,
   GET_USER_DATA,
-  GET_USER_DATA_FAIL
+  GET_USER_DATA_FAIL,
+  auth,
+  navBarActionTypes,
+  modalTypes,
 };
