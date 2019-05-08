@@ -16,6 +16,7 @@ module.exports = merge(common, {
     devServer: {
       contentBase: './build',
       hot: true,
+      publicPath: process.env.ASSET_PATH || '/',
       historyApiFallback: true
     }
   });
