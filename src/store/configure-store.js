@@ -34,7 +34,11 @@ const Store = () => {
     composedEnhancer
   );
 
-  store.subscribe(() => saveToLocalStorage(store.getState()));
+  store.subscribe(() => {
+    saveToLocalStorage({
+      auth: store.getState().auth
+    });
+  });
 
   return store;
 };

@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
 import HorizontalListItems from './HorizontalListItems';
 import { openModalAction } from '../../actions';
-
 import NavBarItems from './NavBarItems';
+
 
 const Header = ({ clicked, dispatch }) => {
   const openLoginModal = () => dispatch(openModalAction());
-
   const linkItems = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -18,10 +17,18 @@ const Header = ({ clicked, dispatch }) => {
     { no: 6, name: 'Music' }
   ];
 
-  const menuItems = [
-    { no: 1, text: 'Sign in', onClick: openLoginModal },
-    { no: 2, text: 'Sign up' }
-  ];
+  const menuItems = [];
+
+  const isLoggedIn = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      return menuItems.push({ no: 1, text: 'Write Post' });
+    }
+    return menuItems.push({ no: 1, text: 'Sign in', onClick: openLoginModal }, { no: 2, text: 'Sign up' });
+  };
+
+  isLoggedIn();
 
   return (
     <nav className='header d-flex justify-content-between'>

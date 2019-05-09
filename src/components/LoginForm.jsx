@@ -15,7 +15,6 @@ import Button from './common/Button';
 import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
 import ToastMessage from './common/ToastMessage';
-import { closeModalAction } from '../actions/modalActions';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -45,9 +44,7 @@ class LoginForm extends Component {
   LoginUser = (rememberToken, token) => {
     window.localStorage.setItem('token', token);
     window.localStorage.setItem('rememberToken', rememberToken);
-    const { history, dispatch } = this.props;
-    history.push('/dashboard');
-    dispatch(closeModalAction());
+    window.location.reload(true);
   }
 
   processLogin = async () => {
