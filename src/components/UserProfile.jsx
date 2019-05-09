@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import '../styles/index.scss';
 import ninja from '../assets/images/ninja.jpg';
 import { increment, decrement } from '../actions';
