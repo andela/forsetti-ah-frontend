@@ -1,3 +1,3 @@
-import { increment, decrement } from './example.actions';
+import { showSideDrawerAction, hideSideDrawerAction } from './navBarActions';
 
-export { increment, decrement };
+export { showSideDrawerAction, hideSideDrawerAction };

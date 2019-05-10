@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingPage /> renders correctly 1`] = `
+<div
+  className="landing-page"
+>
+  <div
+    className="backdrop"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+  <div
+    className="sidedrawer"
+    style={
+      Object {
+        "opacity": "0",
+        "visibility": "hidden",
+      }
+    }
+  >
+    <div
+      className="sidedrawer-nav"
+    >
+      <div
+        className="sidedrawer-nav-close-icon"
+      >
+        <button
+          aria-label={null}
+          className="sidedrawer-nav-close-button btn btn-secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="far fa-window-close"
+          />
+        </button>
+      </div>
+      <div
+        className="sidedrawer-nav-links"
+      >
+        <ul
+          className="sidedrawer-nav-links-list"
+        >
+          <li>
+            Tech
+          </li>
+          <li>
+            Philosophy
+          </li>
+          <li>
+            Life
+          </li>
+          <li>
+            Politics
+          </li>
+          <li>
+            Nature
+          </li>
+          <li>
+            Music
+          </li>
+        </ul>
+        <ul
+          className="sidedrawer-nav-menu-list"
+        >
+          <li>
+            <button
+              aria-label={null}
+              className="navbar-button-item btn btn-primary"
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </li>
+          <li>
+            <button
+              aria-label={null}
+              className="navbar-button-item btn btn-primary"
+              onClick={[Function]}
+            >
+              Sign up
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-12"
+    >
+      <nav
+        className="header d-flex justify-content-between"
+      >
+        <div
+          className="header-logo"
+        >
+          <h1
+            className="header-logo-text"
+          >
+            Authors Haven
+          </h1>
+        </div>
+        <div
+          className="header-links"
+        >
+          <ul
+            className="header-links-list"
+          >
+            <li>
+              Tech
+            </li>
+            <li>
+              Philosophy
+            </li>
+            <li>
+              Life
+            </li>
+            <li>
+              Politics
+            </li>
+            <li>
+              Nature
+            </li>
+            <li>
+              Music
+            </li>
+          </ul>
+        </div>
+        <div
+          className="header-nav"
+        >
+          <ul
+            className="header-nav-menu"
+          >
+            <li>
+              <button
+                aria-label={null}
+                className="navbar-button-item btn btn-primary"
+                onClick={[Function]}
+              >
+                Sign in
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label={null}
+                className="navbar-button-item btn btn-primary"
+                onClick={[Function]}
+              >
+                Sign up
+              </button>
+            </li>
+          </ul>
+          <button
+            aria-label={null}
+            className="header-nav-hamburger btn btn-secondary"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-bars"
+            />
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="articles row"
+  >
+    <div
+      className="col-sm-6"
+    />
+    <div
+      className="col-sm-4"
+    />
+  </div>
+  <div
+    className="footer row"
+  >
+    <div
+      className="col"
+    >
+      <footer
+        className="footer"
+      >
+        <div
+          className="footer-upper-section row"
+        >
+          <div
+            className="footer-logo col-sm-12 col-lg-4"
+          >
+            <h6
+              className="footer-logo-text"
+            >
+              Authors Haven
+            </h6>
+          </div>
+          <div
+            className="footer-links col-sm-4"
+          >
+            <div
+              className="footer-links-box"
+            >
+              <ul
+                className="footer-links-box-list"
+              >
+                <li>
+                  Tech
+                </li>
+                <li>
+                  Philosophy
+                </li>
+                <li>
+                  Life
+                </li>
+                <li>
+                  Politics
+                </li>
+              </ul>
+              <ul
+                className="footer-links-box-list"
+              >
+                <li>
+                  Politics
+                </li>
+                <li>
+                  Culture
+                </li>
+                <li>
+                  Nature
+                </li>
+                <li>
+                  Music
+                </li>
+              </ul>
+              <ul
+                className="footer-links-box-list"
+              >
+                <li>
+                  Finance
+                </li>
+                <li>
+                  Adventure
+                </li>
+                <li>
+                  Motivational
+                </li>
+                <li>
+                  Spiritual
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="footer-top-logo col-sm-4"
+          >
+            <i
+              className="fas fa-arrow-up footer-top-logo-icon"
+            />
+          </div>
+        </div>
+        <div
+          className="footer-lower-section row"
+        >
+          <div
+            className="col"
+          >
+            <p
+              className="footer-lower-section-text"
+            >
+               © 2019
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+`;

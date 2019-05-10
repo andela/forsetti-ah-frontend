@@ -53,7 +53,7 @@ body {
   position: relative;
   height: 200px;
   h1 {
-    color: $white;
+    color: $white-color;
     font-family: 'Roboto', sans-serif;
     font-size: 220px;
     font-weight: 900;
@@ -68,7 +68,7 @@ body {
     text-transform: uppercase;
     }
   h2 {
-      color: $white;
+      color: $white-color;
       font-family: 'Roboto', sans-serif;
       font-size: 22px;
       font-weight: 700;
@@ -79,7 +79,7 @@ body {
   }
 
 a {
-    color: $black;
+    color: $black-color;
     font-family: 'Roboto', sans-serif;
     display: inline-block;
   }

@@ -7,7 +7,9 @@ module.exports = {
     setupFiles: ['<rootDir>/enzyme.config.js'],
     testEnvironment: 'jsdom',
     testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
-    testPathIgnorePatterns: ['\\\\node_modules\\\\'],
+    testPathIgnorePatterns: ['\\\\node_modules\\\\',
+      '<rootDir>/cypress',
+    ],
     testURL: 'http://localhost',
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
     verbose: false,
@@ -19,5 +21,6 @@ module.exports = {
       },
       moduleNameMapper: {
         '^.+\\.(jpg|png)$': 'babel-jest'
-      }
+      },
+    modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js']
   };
