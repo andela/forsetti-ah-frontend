@@ -22,3 +22,8 @@
 @import './components/socialLogin';
 @import './components/signupModal';
 @import "./containers/notificationpage";
+@import "./components/resetPassword/resetPassword";
+@import "./components/resetPassword/ResetPasswordForm";
+@import "./components/common/resetCancelIcon";
+@import "./components/common/ToastMessage";
+@import "./components/common/formTextError";

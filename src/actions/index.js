@@ -27,6 +27,15 @@ import {
 } from './articleActions';
 import { setLoading, createArticle, createArticleError } from './articles.actions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
+import {
+  closeModal,
+  openModal,
+  forgotPassword,
+  resetPassword,
+  getToken,
+  openResetModal,
+  closeResetModal
+} from './resetPasswordActions';
 
 export {
   showSideDrawerAction,
@@ -55,5 +64,12 @@ export {
   signupFailure,
   signUpUser,
   getNotifications,
-  getUserNotifications
+  getUserNotifications,
+  closeModal,
+  openModal,
+  forgotPassword,
+  resetPassword,
+  getToken,
+  openResetModal,
+  closeResetModal
 };
