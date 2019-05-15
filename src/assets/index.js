@@ -8,6 +8,8 @@ import clapWhite from './svg/clap_white.svg';
 import articlePlaceholder from './images/article.png';
 import hands from './svg/hands.svg';
 import user from './svg/user.svg';
+import notification from './svg/notification.svg';
+import notificationBlue from './svg/notification (1).svg';
 
 export {
   google,
@@ -19,5 +21,7 @@ export {
   clapWhite,
   articlePlaceholder,
   hands,
-  user
+  user,
+  notification,
+  notificationBlue
 };

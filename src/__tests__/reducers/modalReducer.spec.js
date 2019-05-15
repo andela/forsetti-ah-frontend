@@ -1,6 +1,6 @@
 import { modalReducer, initialState } from '../../reducers/modalReducer';
 
-import { OPEN_MODAL, CLOSE_MODAL }from '../../action-types';
+import { OPEN_MODAL, CLOSE_MODAL }  from '../../action-types';
 
 describe('Modal', () => {
   it('should return initial state', () => {

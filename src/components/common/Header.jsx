@@ -8,10 +8,18 @@ import {
   openTagsModal,
   openSignupModalAction
 } from '../../actions';
+import { notificationBlue } from '../../assets';
 import NavBarItems from './NavBarItems';
 
-
-const Header = ({ clicked, dispatch, history }) => {
+const Header = (props) => {
+  const {
+    dispatch,
+    clicked,
+    notifications: {
+      count = 0
+    },
+    history
+  } = props;
   const openLoginModal = () => dispatch(openModalAction());
   const openSignupModal = () => dispatch(openSignupModalAction());
   const openArticleTagsModal = () => dispatch(openTagsModal());
@@ -25,9 +33,9 @@ const Header = ({ clicked, dispatch, history }) => {
   ];
 
   const menuItems = [];
-
+  let token;
   const isLoggedIn = () => {
-    const token = localStorage.getItem('token');
+    token = localStorage.getItem('token');
     if (history.location.pathname === '/article/new') {
       return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
     }
@@ -54,9 +62,23 @@ const Header = ({ clicked, dispatch, history }) => {
       <div className='header-links'>
         <HorizontalListItems items={linkItems} className='header-links-list' />
       </div>
-      <div className='header-nav'>
-        <NavBarItems menuItems={menuItems} className='header-nav-menu' />
-        <Button onClick={clicked} className='header-nav-hamburger'>
+      <div className='header-nav row'>
+        <div className='row mr-3 mr-md-2 d-sm-none d-md-block'>
+          { token && (
+          <Link to='/profiles/notification' style={{ color: 'white', fontSize: '1rem', textDecoration: 'none' }}>
+            <p className='d-sm-none d-md-block notification-icon'>
+              <img src={notificationBlue} alt='notification' className='rounded-0 ' style={{ width: '2rem' }} />
+              <span className=''>
+                {count}
+              </span>
+            </p>
+          </Link>
+          )}
+        </div>
+        <div className='row mr-1 mr-md-2'>
+          <NavBarItems menuItems={menuItems} className='header-nav-menu' />
+        </div>
+        <Button onClick={clicked} className='header-nav-hamburger col'>
           <i className='fas fa-bars' />
         </Button>
       </div>
@@ -64,7 +86,11 @@ const Header = ({ clicked, dispatch, history }) => {
   );
 };
 
-const HeaderComponent = connect()(withRouter(Header));
+const mapStateToProps = state => ({
+  notifications: state.notifications
+});
+
+const HeaderComponent = connect(mapStateToProps)(withRouter(Header));
 
 export {
   HeaderComponent,

@@ -6,13 +6,21 @@ import { articleReducer } from './articleReducers';
 import singleArticleReducer from './articleReducer';
 import createArticleReducer from './createArticle.reducers';
 
+import notificationReducers from './notifcationReducers';
+
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
   modal: modalReducer,
   auth: authReducer,
   articles: articleReducer,
   article: singleArticleReducer,
-  createArticle: createArticleReducer
+  createArticle: createArticleReducer,
+  notifications: notificationReducers
 });
 
-export { Reducer, articleReducer, singleArticleReducer };
+export {
+  Reducer,
+  articleReducer,
+  singleArticleReducer,
+  notificationReducers
+};

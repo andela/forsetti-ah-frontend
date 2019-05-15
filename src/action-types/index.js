@@ -2,6 +2,7 @@ import navBarActionTypes from './navBarActionTypes';
 import auth from './authActionTypes';
 import article from './article.action-type';
 import modalTypes from './modalTypes';
+import notificationActionTypes from './notificationActionTypes';
 import articleActionTypes from './articleActionTypes';
 import createArticleActionTypes from './articles.action-type';
 
@@ -21,12 +22,15 @@ const {
 } = modalTypes;
 const { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } = navBarActionTypes;
 const { GET_ARTICLES_BEGIN, GET_ARTICLES_FAIL, GET_ARTICLES_SUCCESS } = articleActionTypes;
+const { GET_NOTIFICATION, LOADING_NOTIFICATION } = notificationActionTypes;
 
 export {
   SHOW_SIDEDRAWER,
   HIDE_SIDEDRAWER,
   GET_SINGLE_ARTICLE,
   ARTICLE_NOT_FOUND,
+  GET_NOTIFICATION,
+  LOADING_NOTIFICATION,
   LOGIN_USER_BEGIN,
   LOGIN_USER_FAILURE,
   LOGIN_USER_SUCCESS,

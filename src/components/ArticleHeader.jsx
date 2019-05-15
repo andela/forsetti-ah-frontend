@@ -25,7 +25,7 @@ const ArticleHeader = ({
           src={image !== null ? image : user}
           alt='profile'
           className='rounded-circle media m-0'
-          style={{ objectFit: 'cover', width: '70px' }}
+          style={{ objectFit: 'cover', width: '70px', height: '70px' }}
         />
       </div>
       <div className='col-8 col-md-11'>

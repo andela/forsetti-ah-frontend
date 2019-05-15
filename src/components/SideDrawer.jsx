@@ -28,6 +28,11 @@ const SideDrawer = ({
   };
   const openArticleTagsModal = () => dispatch(openTagsModal());
 
+  const closeSidebar = (path) => {
+    history.push(path);
+    dispatch(hideSideDrawerAction());
+  };
+
   const items = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -43,11 +48,17 @@ const SideDrawer = ({
   const isLoggedIn = () => {
     const token = localStorage.getItem('token');
     if (history.location.pathname === '/article/new') {
-      return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
+      return menuItems.push(
+        { no: 1, text: 'Publish', onClick: openArticleTagsModal },
+        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') }
+      );
     }
 
     if (token) {
-      return menuItems.push({ no: 1, text: 'Write Post', onClick: () => history.push('/article/new') });
+      return menuItems.push(
+        { no: 1, text: 'Write Post', onClick: () => closeSidebar('/article/new') },
+        { no: 2, text: 'Notification', onClick: () => closeSidebar('/profiles/notification') }
+      );
     }
     return (
       menuItems.push(
