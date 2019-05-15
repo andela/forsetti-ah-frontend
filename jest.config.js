@@ -20,7 +20,7 @@ module.exports = {
         '^.+\\.jsx?$': 'babel-jest',
       },
       moduleNameMapper: {
-        '^.+\\.(jpg|png)$': 'babel-jest'
+        '^.+\\.(jpg|png|svg)$': 'babel-jest'
       },
     modulePathIgnorePatterns: [ 'store/', 'src/index.jsx', 'src/reducers/index.js']
   };

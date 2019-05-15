@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import { showSideDrawerAction, hideSideDrawerAction } from '../actions';
-import { Header, Footer, SideDrawer } from '../components';
+import {
+  HeaderComponent,
+  Footer,
+  SideDrawerComponent,
+  LoginModalComponent
+} from '../components';
 
-export class LandingPage extends Component {
+class LandingPage extends Component {
   showSideDrawerHandler = () => {
     const { dispatch } = this.props;
     dispatch(showSideDrawerAction());
@@ -16,13 +21,17 @@ export class LandingPage extends Component {
   }
 
   render() {
-    const { showSideDrawer: { showSideDrawer } } = this.props;
+    const {
+      showSideDrawer: { showSideDrawer },
+      modal: { showModal }
+    } = this.props;
     return (
       <div className='landing-page'>
-        <SideDrawer show={showSideDrawer} closed={this.hideSideDrawerHandler} />
+        <LoginModalComponent isOpen={showModal} />
+        <SideDrawerComponent show={showSideDrawer} closed={this.hideSideDrawerHandler} />
         <Row>
           <Col lg={{ size: 12 }}>
-            <Header clicked={this.showSideDrawerHandler} />
+            <HeaderComponent clicked={this.showSideDrawerHandler} />
           </Col>
         </Row>
         <Row className='articles'>
@@ -40,8 +49,10 @@ export class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { showSideDrawer } = state;
-  return { showSideDrawer };
+  const { showSideDrawer, modal } = state;
+  return { showSideDrawer, modal };
 };
 
-export default connect(mapStateToProps)(LandingPage);
+const LandingPageComponent = connect(mapStateToProps)(LandingPage);
+
+export { LandingPageComponent, LandingPage };

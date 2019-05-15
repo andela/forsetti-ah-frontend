@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import LandingPageComponent from '../containers/LandingPage';
+import { LandingPageComponent } from '../containers/LandingPage';
 import NotFound from '../components/NotFound';
 
 const Routes = () => (

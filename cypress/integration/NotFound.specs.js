@@ -1,6 +1,6 @@
 describe('Test for Not Found component', () => {
     beforeEach(() => {
-        cy.visit('/*');
+        cy.visit('/notfoundpage');
     });
     it('Header should be in the DOM', () => {
         cy.get('h1')

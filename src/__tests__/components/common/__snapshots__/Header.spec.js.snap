@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders correctly 1`] = `
+<nav
+  className="header d-flex justify-content-between"
+>
+  <div
+    className="header-logo"
+  >
+    <h1
+      className="header-logo-text"
+    >
+      Authors Haven
+    </h1>
+  </div>
+  <div
+    className="header-links"
+  >
+    <ul
+      className="header-links-list"
+    >
+      <li>
+        Tech
+      </li>
+      <li>
+        Philosophy
+      </li>
+      <li>
+        Life
+      </li>
+      <li>
+        Politics
+      </li>
+      <li>
+        Nature
+      </li>
+      <li>
+        Music
+      </li>
+    </ul>
+  </div>
+  <div
+    className="header-nav"
+  >
+    <ul
+      className="header-nav-menu"
+    >
+      <li>
+        <button
+          aria-label={null}
+          className="navbar-button-item btn btn-primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Sign in
+        </button>
+      </li>
+      <li>
+        <button
+          aria-label={null}
+          className="navbar-button-item btn btn-primary"
+          onClick={[Function]}
+        >
+          Sign up
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-label={null}
+      className="header-nav-hamburger btn btn-secondary"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-bars"
+      />
+    </button>
+  </div>
+</nav>
+`;

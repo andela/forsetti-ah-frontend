@@ -5,7 +5,7 @@ const NavBarItems = ({ menuItems, className }) => (
   <ul className={className}>
     {menuItems.map(menuItem => (
       <li key={menuItem.no}>
-        <Button className='navbar-button-item' color='primary'>
+        <Button className='navbar-button-item' color='primary' onClick={menuItem.onClick}>
           {menuItem.text}
         </Button>
       </li>

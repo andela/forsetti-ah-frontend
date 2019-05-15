@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { LandingPage } from '../../containers/LandingPage';
 
 describe('<LandingPage />', () => {
@@ -8,8 +8,11 @@ describe('<LandingPage />', () => {
       showSideDrawer: {
         showSideDrawer: false,
       },
+      modal: {
+        showModal: false,
+      },
     };
-    const tree = renderer.create(<LandingPage {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const LandingPageComponent = shallow(<LandingPage {...props} />);
+    expect(LandingPageComponent).toMatchSnapshot();
   });
 });

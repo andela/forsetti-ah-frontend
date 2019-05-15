@@ -1,6 +1,6 @@
 import { navBarReducer, initialState } from '../../reducers/navBarReducers';
 
-import navBarActionTypes from '../../action-types';
+import { navBarActionTypes } from '../../action-types';
 
 const { HIDE_SIDEDRAWER, SHOW_SIDEDRAWER } = navBarActionTypes;
 

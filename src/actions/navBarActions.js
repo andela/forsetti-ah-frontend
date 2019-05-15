@@ -1,4 +1,4 @@
-import navBarActionTypes from '../action-types';
+import { navBarActionTypes } from '../action-types';
 
 const { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } = navBarActionTypes;
 
