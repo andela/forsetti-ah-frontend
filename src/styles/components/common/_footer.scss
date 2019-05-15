@@ -2,6 +2,10 @@
   background-color: $primary-color;
   height: 12rem;
 
+  & .row {
+    margin-right: 0;
+  }
+
   @media screen and (max-width: 991px) {
     height: 8rem;
   }
@@ -28,7 +32,7 @@
 
   &-links-box {
     margin: 0 auto;
-    width: 25rem;
+    width: 35rem;
 
     &-list {
       color: $white-color;

@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Store from './store/configure-store';
-import Routes from './routes';
+import { BaseLayout as Routes } from './components/common/BaseLayout';
 import './styles/index.scss';
 
 const store = Store();
@@ -13,7 +13,6 @@ const store = Store();
 ReactDOM.render(
   <Provider store={store}>
     <Routes />
-    ,
     <ToastContainer
       position='top-center'
       hideProgressBar

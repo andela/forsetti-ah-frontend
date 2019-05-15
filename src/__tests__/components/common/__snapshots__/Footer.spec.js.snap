@@ -5,92 +5,100 @@ exports[`<Footer /> renders correctly 1`] = `
   className="footer"
 >
   <div
-    className="footer-upper-section row"
+    className="footer-upper-section"
   >
     <div
-      className="footer-logo col-sm-12 col-lg-4"
-    >
-      <h6
-        className="footer-logo-text"
-      >
-        Authors Haven
-      </h6>
-    </div>
-    <div
-      className="footer-links col-sm-4"
+      className="row"
     >
       <div
-        className="footer-links-box"
+        className="footer-logo col-sm-12 col-lg-4"
       >
-        <ul
-          className="footer-links-box-list"
+        <h6
+          className="footer-logo-text"
         >
-          <li>
-            Tech
-          </li>
-          <li>
-            Philosophy
-          </li>
-          <li>
-            Life
-          </li>
-          <li>
-            Politics
-          </li>
-        </ul>
-        <ul
-          className="footer-links-box-list"
-        >
-          <li>
-            Politics
-          </li>
-          <li>
-            Culture
-          </li>
-          <li>
-            Nature
-          </li>
-          <li>
-            Music
-          </li>
-        </ul>
-        <ul
-          className="footer-links-box-list"
-        >
-          <li>
-            Finance
-          </li>
-          <li>
-            Adventure
-          </li>
-          <li>
-            Motivational
-          </li>
-          <li>
-            Spiritual
-          </li>
-        </ul>
+          Authors Haven
+        </h6>
       </div>
-    </div>
-    <div
-      className="footer-top-logo col-sm-4"
-    >
-      <i
-        className="fas fa-arrow-up footer-top-logo-icon"
-      />
+      <div
+        className="footer-links col-sm-4"
+      >
+        <div
+          className="footer-links-box"
+        >
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Tech
+            </li>
+            <li>
+              Philosophy
+            </li>
+            <li>
+              Life
+            </li>
+            <li>
+              Politics
+            </li>
+          </ul>
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Politics
+            </li>
+            <li>
+              Culture
+            </li>
+            <li>
+              Nature
+            </li>
+            <li>
+              Music
+            </li>
+          </ul>
+          <ul
+            className="footer-links-box-list"
+          >
+            <li>
+              Finance
+            </li>
+            <li>
+              Adventure
+            </li>
+            <li>
+              Motivational
+            </li>
+            <li>
+              Spiritual
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="footer-top-logo col-sm-4"
+      >
+        <i
+          className="fas fa-arrow-up footer-top-logo-icon"
+        />
+      </div>
     </div>
   </div>
   <div
-    className="footer-lower-section row"
+    className="footer-lower-section"
   >
     <div
-      className="col"
+      className="row"
     >
-      <p
-        className="footer-lower-section-text"
+      <div
+        className="col"
       >
-         © 2019
-      </p>
+        <p
+          className="footer-lower-section-text"
+        >
+           © 2019
+        </p>
+      </div>
     </div>
   </div>
 </footer>

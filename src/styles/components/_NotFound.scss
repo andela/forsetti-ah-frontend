@@ -19,7 +19,7 @@ body {
   }
 
   .notfound-bg:after {
-    background-color: $primary-color;
+    background-color: $white-color;
     content: '';
     position: absolute;
     width: $fullLength;
@@ -54,7 +54,7 @@ body {
   position: relative;
   height: 200px;
   h1 {
-    color: $white-color;
+    color: $primary-color;
     font-family: 'Roboto', sans-serif;
     font-size: 220px;
     font-weight: 900;
@@ -71,7 +71,7 @@ body {
     text-transform: uppercase;
     }
   h2 {
-      color: $white-color;
+      color: $primary-color;
       font-family: 'Roboto', sans-serif;
       font-size: 22px;
       font-weight: 700;
@@ -81,14 +81,15 @@ body {
   }
 
 a {
-    color: $black-color;
+    color: $primary-color;
+    text-decoration: underline;
     font-family: 'Roboto', sans-serif;
     display: inline-block;
   }
 
-a:hover {
-    text-decoration: none;
-    color: $white-color;
+a:hover, a:active {
+    text-decoration: underline;
+    color: $secondary-color;
   }
 
 @media only screen and (max-width: 480px) {

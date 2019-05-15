@@ -27,11 +27,15 @@
     font-size: 2rem;
     text-transform: uppercase;
 
-    @media screen and (max-width: 575px) {
+    @media screen and (max-width: 319px) {
+      font-size: 0.7rem;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 575px) {
       font-size: 1rem;
     }
 
-    @media screen and (max-width: 917px) {
+    @media screen and (min-width: 575px) and (max-width: 917px) {
       font-size: 1.5rem;
     }
   }
