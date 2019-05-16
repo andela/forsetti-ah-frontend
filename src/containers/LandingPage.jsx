@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
-import { getAritlces } from '../actions';
+import { getAritlces, openModalAction } from '../actions';
 import { Articles } from '../components';
 
 class LandingPage extends Component {
@@ -13,10 +13,12 @@ class LandingPage extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { getAllArticles } = this.props;
+  componentDidMount() {
+    const { props: { history: { action } } } = this;
+    const { getAllArticles, openModal } = this.props;
     const { pageCount } = this.state;
-    await getAllArticles(pageCount);
+    getAllArticles(pageCount);
+    if (action === 'REPLACE') openModal();
   }
 
   pageCountHandler = () => {
@@ -30,9 +32,7 @@ class LandingPage extends Component {
   }
 
   render() {
-    const {
-      articles
-    } = this.props;
+    const { articles } = this.props;
     return (
       <div className='landing-page'>
         <div className='container landing'>
@@ -75,16 +75,16 @@ class LandingPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { articles } = state;
-  return { articles };
-};
-const mapDispatchToProps = dispatch => ({
-  getAllArticles: (page) => {
-    dispatch(getAritlces(page));
-  },
+const mapStateToProps = state => ({
+  articles: state.articles
 });
-
+const mapDispatchToProps = {
+  openModal: openModalAction,
+  getAllArticles: page => getAritlces(page)
+};
 const LandingPageComponent = connect(mapStateToProps, mapDispatchToProps)(LandingPage);
 
-export { LandingPageComponent, LandingPage };
+export {
+  LandingPage,
+  LandingPageComponent
+};

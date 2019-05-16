@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
+import { AuthorizationHOCUnit } from '../AuthorizationHOC';
 import { SideDrawerComponent } from '../SideDrawer';
 import { HeaderComponent } from './Header';
 import Footer from './Footer';
 import LoginModal from '../LoginModal';
 import { LandingPageComponent } from '../../containers/LandingPage';
 import CreateArticlePage from '../../containers/CreateArticle';
-import NotFound from '../NotFound';
+import NotFoundPage from '../../containers/NotFoundPage';
 import Article from '../../containers/Article';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 import { AuthSocialComponent } from '../AuthSocial';
@@ -30,10 +31,10 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
       <HeaderComponent clicked={showSideDrawerHandler} />
       <Switch>
         <Route path='/' component={LandingPageComponent} exact />
-        <Route exact path='/article/new' component={CreateArticlePage} />
+        <AuthorizationHOCUnit exact path='/article/new' component={CreateArticlePage} />
         <Route exact path='/article/:slug' component={Article} />
         <Route path='/auth/social' component={AuthSocialComponent} />
-        <Route component={NotFound} />
+        <Route component={NotFoundPage} />
       </Switch>
       <div className='footer'>
         <Row>

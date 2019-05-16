@@ -4,7 +4,30 @@ import { articles as articlesMock } from '../../testUtils/testsMockData/articles
 import { LandingPage } from '../../containers/LandingPage';
 
 describe('<LandingPage />', () => {
+  const props = {
+    showSideDrawer: {
+      showSideDrawer: false,
+    },
+    modal: {
+      showModal: false,
+    },
+    articles: {
+      isLoading: false,
+      aritcles: articlesMock
+    },
+    getAllArticles: jest.fn(),
+    history: {
+      action: 'POP'
+    },
+    openModal: jest.fn()
+  };
+
   it('renders correctly', () => {
+    const LandingPageComponent = shallow(<LandingPage {...props} />);
+    expect(LandingPageComponent).toMatchSnapshot();
+  });
+
+  it('opens login modal on redirect', () => {
     const props = {
       showSideDrawer: {
         showSideDrawer: false,
@@ -16,10 +39,13 @@ describe('<LandingPage />', () => {
         isLoading: false,
         aritcles: articlesMock
       },
-      getAllArticles: jest.fn()
+      getAllArticles: jest.fn(),
+      history: {
+        action: 'REPLACE'
+      },
+      openModal: jest.fn()
     };
     const LandingPageComponent = shallow(<LandingPage {...props} />);
-    expect(LandingPageComponent).toMatchSnapshot();
-  });
+    expect(props.openModal).toHaveBeenCalled();
+  })
 });
- 
