@@ -32,6 +32,7 @@ const SideDrawer = ({ show, closed, dispatch }) => {
       <div
         className='sidedrawer'
         style={{
+          display: show ? 'block' : 'none',
           opacity: show ? '1' : '0',
           visibility: show ? 'visible' : 'hidden'
         }}
