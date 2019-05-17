@@ -4,22 +4,18 @@ jobs:
     environment:
       CC_TEST_REPORTER_ID: a187a5458a1c953c3bff2523ac18b2cb47ebb69989bc55845b6b0c31131f88c2
     docker:
-      - image: cypress/base:10
+      - image: circleci/node:8
     working_directory: ~/app
     steps:
       - checkout
       - restore_cache: 
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-v2-{{ checksum "package.json" }}
       - run:
           name: Install Dependencies
           command: |
             npm ci
-      - run: 
-          name: Verfiy Cypress Dependencies
-          command: |
-            npm run cypress:verify
       - save_cache: 
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-v2-{{ checksum "package.json" }}
           paths:
             - ~/.npm
             - ~/.cache
@@ -34,15 +30,3 @@ jobs:
             ./cc-test-reporter before-build
             npm test -- --coverage
             ./cc-test-reporter after-build --exit-code $?
-      - run:
-          name: Run build
-          command: |
-            npm run build
-      - run:
-          name: Start server
-          command: npm run start
-          background: true
-      - run: 
-          name: Run e2e test using Cypress
-          command:  |
-            npm run cypress:run:prod:record
