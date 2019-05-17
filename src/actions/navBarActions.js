@@ -1,6 +1,4 @@
-import { navBarActionTypes } from '../action-types';
-
-const { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } = navBarActionTypes;
+import { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } from '../action-types';
 
 /**
  * Shows the sideDrawer for mobile view

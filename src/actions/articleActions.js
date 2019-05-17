@@ -1,7 +1,11 @@
-import { articleActionTypes } from '../action-types';
+import {
+  GET_ARTICLES_SUCCESS,
+  GET_ARTICLES_FAIL,
+  GET_ARTICLES_BEGIN,
+  GET_SINGLE_ARTICLE,
+  ARTICLE_NOT_FOUND
+} from '../action-types';
 import axios from '../config/axiosConfig';
-
-const { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } = articleActionTypes;
 
 const loadingStateHandler = () => ({
   type: GET_ARTICLES_BEGIN
@@ -29,9 +33,34 @@ const getAritlces = page => async (dispatch) => {
   }
 };
 
+const singleArticle = (data = {}) => {
+  const article = data.data === undefined ? {} : data.data.data[0];
+  return {
+    type: GET_SINGLE_ARTICLE,
+    article
+  };
+};
+
+const articleNotFound = (error = '') => ({
+  type: ARTICLE_NOT_FOUND,
+  error,
+});
+
+const getSingleArticle = slug => async (dispatch) => {
+  try {
+    const res = await axios.get(`/article/${slug}`);
+    return dispatch(singleArticle(res));
+  } catch (error) {
+    return dispatch(articleNotFound(error.message));
+  }
+};
+
 export {
+  getSingleArticle,
+  singleArticle,
+  getAritlces,
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
-  getAritlces
+  articleNotFound
 };

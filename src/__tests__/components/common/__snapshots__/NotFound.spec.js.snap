@@ -21,11 +21,17 @@ exports[`App Should maintain existing snapshot 1`] = `
       className="notfound-404"
     >
       <h2>
-        The page you are searching for does not exist.
+        The
+        <span
+          className="px-1"
+        >
+          page
+        </span>
+        you are searching for does not exist.
         <br />
         You may need to consider going back to our
-         
         <a
+          className="px-1"
           href="/"
         >
           Home Page

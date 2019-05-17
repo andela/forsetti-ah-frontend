@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LandingPage } from '../../containers/LandingPage';
 import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
+import { LandingPage } from '../../containers/LandingPage';
 
 describe('<LandingPage />', () => {
   it('renders correctly', () => {
@@ -12,7 +12,7 @@ describe('<LandingPage />', () => {
       modal: {
         showModal: false,
       },
-      article: {
+      articles: {
         isLoading: false,
         aritcles: articlesMock
       },

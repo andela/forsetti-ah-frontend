@@ -8,6 +8,7 @@ import Footer from './Footer';
 import LoginModal from '../LoginModal';
 import { LandingPageComponent } from '../../containers/LandingPage';
 import NotFound from '../NotFound';
+import Article from '../../containers/Article';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 
 const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
@@ -27,6 +28,7 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
       <HeaderComponent clicked={showSideDrawerHandler} />
       <Switch>
         <Route path='/' component={LandingPageComponent} exact />
+        <Route exact path='/article/:slug' component={Article} />
         <Route component={NotFound} />
       </Switch>
       <div className='footer'>

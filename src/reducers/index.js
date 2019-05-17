@@ -3,12 +3,15 @@ import { navBarReducer } from './navBarReducers';
 import { modalReducer } from './modalReducer';
 import { authReducer } from './authReducer';
 import { articleReducer } from './articleReducers';
+import singleArticleReducer from './articleReducer';
+
 
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
   modal: modalReducer,
   auth: authReducer,
-  article: articleReducer
+  articles: articleReducer,
+  article: singleArticleReducer
 });
 
-export default Reducer;
+export { Reducer, articleReducer, singleArticleReducer };

@@ -31,7 +31,7 @@ class LandingPage extends Component {
 
   render() {
     const {
-      article
+      articles
     } = this.props;
     return (
       <div className='landing-page'>
@@ -42,7 +42,7 @@ class LandingPage extends Component {
           <div className='row'>
             <div className='col-md-8'>
               {
-                article.isLoading ? (
+                articles.isLoading ? (
                   <div className='row'>
                     <div className='col-md-12'>
                       <Skeleton width='100px' height='10px' />
@@ -55,9 +55,9 @@ class LandingPage extends Component {
                   <Row className=''>
                     <div className='col-md-12'>
                       {
-                        article.articles && (
+                        articles.articles && (
                         <Articles
-                          articles={article.articles}
+                          articles={articles.articles}
                           loadMore={this.pageCountHandler}
                         />
                         )
@@ -76,8 +76,8 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { article } = state;
-  return { article };
+  const { articles } = state;
+  return { articles };
 };
 const mapDispatchToProps = dispatch => ({
   getAllArticles: (page) => {

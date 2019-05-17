@@ -1,10 +1,8 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import axios from '../../config/axiosConfig';
-import { auth } from '../../action-types';
+import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../../action-types';
 import loginUser, { loadingStateHandler, onLoginSuccessHandler, onFailureHandler } from '../../actions/authActions';
-
-const { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } = auth;
 
 
 const user= {
@@ -66,6 +64,24 @@ describe('Auth actions', () => {
     return store.dispatch(loginUser(loginObject, false))
       .then(() => {
         expect(store.getActions()[0].type).toEqual(expected.type);
+      });
+  });
+
+  it('should return incorrect dispatch after API call', () => {
+    const response = {
+      response: {
+        data: 'incorrect credentials'
+      }
+    }
+    const store = mockedStore({});
+    axios.post = jest.fn().mockReturnValue(Promise.reject(response));
+    const expected = [LOGIN_USER_BEGIN, LOGIN_USER_FAILURE];
+
+    return store.dispatch(loginUser(loginObject, false))
+      .then(() => {
+        const dispatchedActions = store.getActions();
+        const actionTypes = dispatchedActions.map(action => action.type);
+        expect(actionTypes).toEqual(expected);
       });
   });
 });
