@@ -1,0 +1,7 @@
+const createArticleActionTypes = {
+  CREATE_ARTICLE_LOADING: 'CREATE_ARTICLE_LOADING',
+  CREATE_ARTICLE: 'CREATE_ARTICLE',
+  CREATE_ARTICLE_ERROR: 'CREATE_ARTICLE_ERROR'
+};
+
+export default createArticleActionTypes;

@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import HorizontalListItems from './HorizontalListItems';
-import { openModalAction } from '../../actions';
+import { openModalAction, openTagsModal } from '../../actions';
 import NavBarItems from './NavBarItems';
 
 
-const Header = ({ clicked, dispatch }) => {
+const Header = ({ clicked, dispatch, history }) => {
   const openLoginModal = () => dispatch(openModalAction());
+  const openArticleTagsModal = () => dispatch(openTagsModal());
   const linkItems = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -22,9 +23,12 @@ const Header = ({ clicked, dispatch }) => {
 
   const isLoggedIn = () => {
     const token = localStorage.getItem('token');
+    if (history.location.pathname === '/article/new') {
+      return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
+    }
 
     if (token) {
-      return menuItems.push({ no: 1, text: 'Write Post' });
+      return menuItems.push({ no: 1, text: 'Write Post', onClick: () => history.push('/article/new') });
     }
     return menuItems.push({ no: 1, text: 'Sign in', onClick: openLoginModal }, { no: 2, text: 'Sign up' });
   };
@@ -51,7 +55,7 @@ const Header = ({ clicked, dispatch }) => {
   );
 };
 
-const HeaderComponent = connect()(Header);
+const HeaderComponent = connect()(withRouter(Header));
 
 export {
   HeaderComponent,

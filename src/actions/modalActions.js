@@ -1,4 +1,9 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../action-types';
+import {
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  OPEN_TAGS_MODAL,
+  CLOSE_TAGS_MODAL
+} from '../action-types';
 
 /**
  * open the modal
@@ -16,4 +21,17 @@ const closeModalAction = () => ({
   type: CLOSE_MODAL,
 });
 
-export { openModalAction, closeModalAction };
+const openTagsModal = () => ({
+  type: OPEN_TAGS_MODAL
+});
+
+const closeTagsModal = () => ({
+  type: CLOSE_TAGS_MODAL
+});
+
+export {
+  openModalAction,
+  closeModalAction,
+  openTagsModal,
+  closeTagsModal
+};
