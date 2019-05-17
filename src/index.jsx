@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/index.scss';
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { ToastContainer } from 'react-toastify';
@@ -6,7 +7,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Store from './store/configure-store';
 import { BaseLayout as Routes } from './components/common/BaseLayout';
-import './styles/index.scss';
 
 const store = Store();
 

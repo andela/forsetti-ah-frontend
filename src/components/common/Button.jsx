@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 
 const ButtonComponent = ({
-  role, onClick, type, disabled, className, children
+  role, onClick, type, disabled, className, children, block, outline
 }) => ((
   <Button
     type={type}
@@ -10,6 +10,8 @@ const ButtonComponent = ({
     disabled={disabled}
     onClick={onClick}
     className={className}
+    block={block}
+    outline={outline}
   >
     {children}
   </Button>

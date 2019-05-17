@@ -5,7 +5,6 @@ import Routes from '../../routes';
 describe('Routes', () => {
   test('should test default route', () => {
     const wrapper = shallow(<Routes />);
-
     expect(wrapper).toMatchSnapshot();
   });
 });

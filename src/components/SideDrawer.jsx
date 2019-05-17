@@ -21,10 +21,19 @@ const SideDrawer = ({ show, closed, dispatch }) => {
     { no: 6, name: 'Music' }
   ];
 
-  const menuItems = [
-    { no: 1, text: 'Sign in', onClick: openLoginModal },
-    { no: 2, text: 'Sign up' }
-  ];
+
+  const menuItems = [];
+
+  const isLoggedIn = () => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      return menuItems.push({ no: 1, text: 'Write Post' });
+    }
+    return menuItems.push({ no: 1, text: 'Sign in', onClick: openLoginModal }, { no: 2, text: 'Sign up' });
+  };
+
+  isLoggedIn();
 
   return (
     <React.Fragment>

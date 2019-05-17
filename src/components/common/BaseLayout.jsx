@@ -6,7 +6,7 @@ import { SideDrawerComponent } from '../SideDrawer';
 import { HeaderComponent } from './Header';
 import Footer from './Footer';
 import LoginModal from '../LoginModal';
-import LandingPageComponent from '../../containers/LandingPage';
+import { LandingPageComponent } from '../../containers/LandingPage';
 import NotFound from '../NotFound';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 
