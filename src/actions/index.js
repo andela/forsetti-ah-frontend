@@ -19,12 +19,18 @@ import {
   logoutUser
 } from './authActions';
 import {
+  bookmarkArticle,
+  bookmarkArticleSuccessHandler,
+  bookmarkArticleFailureHandler
+} from './bookmarkActions';
+
+import {
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
   getAritlces,
   getSingleArticle,
-  singleArticle
+  singleArticle,
 } from './articleActions';
 import { setLoading, createArticle, createArticleError } from './articles.actions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
@@ -81,5 +87,8 @@ export {
   getCurrentProfile,
   setProfileLoading,
   updateProfile,
-  logoutUser
+  logoutUser,
+  bookmarkArticle,
+  bookmarkArticleSuccessHandler,
+  bookmarkArticleFailureHandler
 };

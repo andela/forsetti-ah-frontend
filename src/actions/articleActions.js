@@ -46,9 +46,14 @@ const articleNotFound = (error = '') => ({
   error,
 });
 
-const getSingleArticle = slug => async (dispatch) => {
+const getSingleArticle = (slug, token) => async (dispatch) => {
   try {
-    const res = await axios.get(`/article/${slug}`);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    };
+    const res = await axios.get(`/article/${slug}`, config);
     return dispatch(singleArticle(res));
   } catch (error) {
     return dispatch(articleNotFound(error.message));

@@ -7,6 +7,7 @@ import articleActionTypes from './articleActionTypes';
 import createArticleActionTypes from './articles.action-type';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
 import profileActionTypes from './profileActionTypes';
+import bookmarkActionTypes from './bookmarkActionTypes';
 
 const {
   LOGIN_USER_BEGIN,
@@ -40,6 +41,7 @@ const {
   CLOSE_RESET_MODAL
 } = resetPasswordActionTypes;
 const { GET_PROFILE, PROFILE_LOADING, UPDATE_PROFILE } = profileActionTypes;
+const { BOOKMARK_ARTICLE_SUCCESS, BOOKMARK_ARTICLE_FAILURE } = bookmarkActionTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -83,5 +85,7 @@ export {
   GET_PROFILE,
   PROFILE_LOADING,
   UPDATE_PROFILE,
-  LOGOUT_USER
+  LOGOUT_USER,
+  BOOKMARK_ARTICLE_SUCCESS,
+  BOOKMARK_ARTICLE_FAILURE
 };

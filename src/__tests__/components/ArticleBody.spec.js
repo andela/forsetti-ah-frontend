@@ -10,4 +10,11 @@ describe('Article body component', () => {
     const wrapper = shallow(<ArticleBody {...bodyProps} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('Simulate a click on the bookmark button', () => {
+    const createBookmark = jest.fn();
+    const wrapper = shallow(<ArticleBody createBookmark={createBookmark} status={201} />);
+    wrapper.find('.bookmark').simulate('click');
+    expect(wrapper).toMatchSnapshot();
+  });
 });
