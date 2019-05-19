@@ -10,11 +10,12 @@ import {
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { loginUserRequest } from '../actions';
+import { loginUser } from '../actions';
 import Button from './common/Button';
 import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
 import ToastMessage from './common/ToastMessage';
+import { google, facebook, twitter } from '../assets/images';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class LoginForm extends Component {
   processLogin = async () => {
     const { dispatch } = this.props;
     const { email, password, rememberLogin } = this.state;
-    await dispatch(loginUserRequest({ email, password }, rememberLogin));
+    await dispatch(loginUser({ email, password }, rememberLogin));
     const {
       auth: {
         status, message, rememberToken, token
@@ -175,6 +176,23 @@ class LoginForm extends Component {
           {' '}
           {spinner}
         </Button>
+        <div className='social-login'>
+          <div className='google-login'>
+            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/google'>
+              <img src={google} alt='Google' />
+            </a>
+          </div>
+          <div className='facebook-login'>
+            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/facebook'>
+              <img src={facebook} alt='Facebook' />
+            </a>
+          </div>
+          <div className='twitter-login'>
+            <a href='https://forsetti-ah-backend-staging.herokuapp.com/api/v1/auth/twitter'>
+              <img src={twitter} alt='Twitter' />
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

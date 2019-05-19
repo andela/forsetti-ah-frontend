@@ -1,5 +1,10 @@
 import { showSideDrawerAction, hideSideDrawerAction } from './navBarActions';
-import loginUserRequest from './authActions';
+import {
+  loginUser,
+  getUserData,
+  getUserDataFailure,
+  getUserDataSuccess
+} from './authActions';
 import { openModalAction, closeModalAction } from './modalActions';
 import {
   loadingStateHandler,
@@ -13,7 +18,7 @@ import {
 export {
   showSideDrawerAction,
   hideSideDrawerAction,
-  loginUserRequest,
+  loginUser,
   openModalAction,
   closeModalAction,
   loadingStateHandler,
@@ -21,5 +26,8 @@ export {
   getAritlcesFailureHandler,
   getAritlces,
   getSingleArticle,
-  singleArticle
+  singleArticle,
+  getUserData,
+  getUserDataFailure,
+  getUserDataSuccess
 };
