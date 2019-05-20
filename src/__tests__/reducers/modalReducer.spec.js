@@ -34,8 +34,6 @@ describe('Modal', () => {
     expect(modalReducer(initialState, {
       type: OPEN_TAGS_MODAL,
     })).toEqual({
-      displayModal: false,
-      showModal: false,
       showTagsModal: true
     });
   });
@@ -44,8 +42,6 @@ describe('Modal', () => {
     expect(modalReducer(initialState, {
       type: CLOSE_TAGS_MODAL,
     })).toEqual({
-      displayModal: false,
-      showModal: false,
       showTagsModal: false
     });
   });

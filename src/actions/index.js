@@ -50,8 +50,39 @@ import {
   openReadStatsModal,
   closeReadStatsModal
 } from './profileActions';
+import {
+  handleFollowUserBegin,
+  handleFollowUserSuccess,
+  handleFollowUserFailure,
+  handleGetFollowersBegin,
+  handleGetFollowersSuccess,
+  handleGetFollowersFailure,
+  handleGetFollowingsBegin,
+  handleGetFollowingsSuccess,
+  handleGetFollowingsFailure,
+  handleUnFollowUserBegin,
+  handleUnFollowUserSuccess,
+  handleUnFollowUserFailure,
+  getFollowers,
+  getFollowings,
+  followUser,
+  unFollowUser,
+  toggleFollowerModal
+} from './followActions';
 
 export {
+  handleFollowUserBegin,
+  handleFollowUserSuccess,
+  handleFollowUserFailure,
+  handleGetFollowersBegin,
+  handleGetFollowersSuccess,
+  handleGetFollowersFailure,
+  handleGetFollowingsBegin,
+  handleGetFollowingsSuccess,
+  handleGetFollowingsFailure,
+  handleUnFollowUserBegin,
+  handleUnFollowUserSuccess,
+  handleUnFollowUserFailure,
   showSideDrawerAction,
   hideSideDrawerAction,
   loginUser,
@@ -94,5 +125,10 @@ export {
   bookmarkArticleSuccessHandler,
   bookmarkArticleFailureHandler,
   openReadStatsModal,
-  closeReadStatsModal
+  closeReadStatsModal,
+  getFollowers,
+  getFollowings,
+  followUser,
+  unFollowUser,
+  toggleFollowerModal
 };

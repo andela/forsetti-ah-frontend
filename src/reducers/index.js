@@ -10,6 +10,10 @@ import profileReducer from './profileReducers';
 import bookmarkReducer from './bookmarkReducer';
 
 import notificationReducers from './notifcationReducers';
+import { followUserReducer } from './followUserReducer';
+import { unFollowUserReducer } from './unfollowUserReducer';
+import { getFollowersReducer } from './getFollowersReducer';
+import { getFollowingsReducer } from './getFollowingsReducer';
 
 
 const Reducer = combineReducers({
@@ -22,7 +26,11 @@ const Reducer = combineReducers({
   notifications: notificationReducers,
   reset: resetPasswordReducers,
   profile: profileReducer,
-  bookmark: bookmarkReducer
+  bookmark: bookmarkReducer,
+  followUser: followUserReducer,
+  unFollowUser: unFollowUserReducer,
+  getFollowers: getFollowersReducer,
+  getFollowings: getFollowingsReducer
 });
 
 export {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getSingleArticle } from '../actions/articleActions';
 import Comments from './Comments';
-import ArticleHeader from './ArticleHeader';
+import { ArticleHeaderComponent } from './ArticleHeader';
 import ArticleBody from './ArticleBody';
 import Notfound from './NotFound';
 import { bookmarkArticle } from '../actions';
@@ -88,7 +88,7 @@ export class GetSingleArticle extends Component {
     };
     return (
       <Fragment>
-        <ArticleHeader {...headerProps} />
+        <ArticleHeaderComponent {...headerProps} />
         <div className='container'>
           <ArticleBody {...bodyProps} />
           <Comments />

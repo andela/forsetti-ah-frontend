@@ -1,7 +1,10 @@
+import { OPEN_FOLLOWER_MODAL, CLOSE_FOLLOWER_MODAL } from '../action-types';
+
 const initialState = {
   showModal: false,
   showTagsModal: false,
-  displayModal: false
+  displayModal: false,
+  followModal: false
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -16,12 +19,10 @@ const modalReducer = (state = initialState, action) => {
       };
     case 'OPEN_TAGS_MODAL':
       return {
-        ...state,
         showTagsModal: true
       };
     case 'CLOSE_TAGS_MODAL':
       return {
-        ...state,
         showTagsModal: false
       };
     case 'OPEN_SIGNUP_MODAL':
@@ -31,6 +32,14 @@ const modalReducer = (state = initialState, action) => {
     case 'CLOSE_SIGNUP_MODAL':
       return {
         displayModal: false,
+      };
+    case OPEN_FOLLOWER_MODAL:
+      return {
+        followModal: true,
+      };
+    case CLOSE_FOLLOWER_MODAL:
+      return {
+        followModal: false,
       };
     default:
       return state;

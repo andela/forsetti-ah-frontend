@@ -1,0 +1,37 @@
+.user-card {
+  display: flex;
+  align-content: space-between;
+  padding: 2rem;
+
+  &-name {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem !important;
+  }
+
+  &-username {
+    font-size: 0.8rem;
+  }
+
+  &-bio {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+  }
+
+  &-img img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+  }
+
+  &-button {
+    margin-left: auto !important;;
+  }
+}
+
+.tab-active-class {
+  border-bottom: 2px solid $primary-color !important;
+}
