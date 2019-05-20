@@ -4,7 +4,7 @@ import { ArticleFormComponent } from '../components/ArticleForm';
 import Footer from '../components/common/Footer';
 
 const CreateArticlePage = () => (
-  <Container>
+  <Container style={{ minHeight: '600px' }}>
     <ArticleFormComponent />
   </Container>
 );

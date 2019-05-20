@@ -10,9 +10,6 @@ import {
 } from 'reactstrap';
 import { closeTagsModal } from '../actions';
 
-const KeyCodes = { enter: 13 };
-const delimiters = [KeyCodes.enter];
-
 class TagsModal extends Component {
     state = { tags: [] };
 
@@ -40,9 +37,11 @@ class TagsModal extends Component {
           <Modal isOpen={tagsmodal.showTagsModal} toggle={this.closeModal} className={className}>
             <ModalHeader toggle={this.closeModal}>Add Tags(Optional)</ModalHeader>
             <ModalBody>
+              <p>You can separate your tags with either of the SPACEBAR or ENTER keys.</p>
               <TagsInput
                 value={tags}
                 onChange={this.handleChange}
+                addKeys={[13, 32]}
                 maxTags={10}
               />
             </ModalBody>

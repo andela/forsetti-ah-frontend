@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FroalaEditor from 'react-froala-wysiwyg';
 import IdleTimer from 'react-idle-timer';
-import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 import {
   FormGroup,
   Input,
@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import * as articleActions from '../actions';
 import TagsModal from './TagsModal';
-import ToastMessage from './common/ToastMessage';
 import uploadImg from '../assets/images/art-image.png';
 
 class ArticleForm extends Component {
@@ -59,7 +58,7 @@ class ArticleForm extends Component {
         title,
         body: model,
         description,
-        tagList: tagList || ['General'],
+        tagList: tagList.length ? [...new Set(tagList)] : ['General'],
         image,
         currentSlug: localStorage.getItem('slug') || null,
         imageChanged
@@ -83,15 +82,24 @@ class ArticleForm extends Component {
     const {
       model, title, imagePreview
     } = this.state;
-    const { props: { article: { isLoading, saved } } } = this;
+    const { props: { article: { isLoading, saved, published } } } = this;
+    const articleSlug = localStorage.getItem('slug') || null;
     return (
       <div className='mb-5 mt-5'>
-        {saved && toast(<ToastMessage message='Saved' />, {
-          type: 'success',
-          closeButton: false,
-          hideProgressBar: true,
-          autoClose: 5000,
-        })}
+        {saved && (
+        <div className='p-1 rounded text-center text-info display-5'>
+          Saved.
+        </div>
+        )}
+        {published && (
+          <div className='p-1 rounded text-center text-info display-5'>
+            Your article has been published. Click
+            {' '}
+            <Link to={`/article/${articleSlug}`}> HERE </Link>
+            {' '}
+to view it.
+          </div>
+        )}
         <IdleTimer
           startOnMount={false}
           onIdle={this.saveArticle}
@@ -110,7 +118,7 @@ class ArticleForm extends Component {
             placeholder='Title goes here'
             value={title}
             minLength='8'
-            maxLength='50'
+            maxLength='75'
             className='mt-3 border-0 shadow-none bold-text form-control-lg'
             onChange={this.onChangeHandler}
             required

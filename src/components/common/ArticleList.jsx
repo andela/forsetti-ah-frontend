@@ -42,9 +42,7 @@ export const ArticleList = ({
                 </h3>
               </div>
               <div className='col-12'>
-                <p className='description'>
-                  { description }
-                </p>
+                <p className='description' dangerouslySetInnerHTML={{ __html: description }} />
               </div>
               {
                   readingTime && (

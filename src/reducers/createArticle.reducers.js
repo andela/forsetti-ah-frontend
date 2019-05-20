@@ -15,6 +15,13 @@ const createArticleReducer = (state = initialState, action) => {
         isLoading: false,
         saved: true
       };
+    case 'CREATE_ARTICLE_PUBLISHED':
+      return {
+        ...state,
+        createArticle: action.payload,
+        isLoading: false,
+        published: true
+      };
     case 'CREATE_ARTICLE_ERROR':
       return {
         ...state,

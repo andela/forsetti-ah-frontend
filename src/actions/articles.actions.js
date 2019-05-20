@@ -1,7 +1,12 @@
 import { createArticleActionTypes } from '../action-types';
 import axiosInstance from '../config/axiosConfig';
 
-const { CREATE_ARTICLE_LOADING, CREATE_ARTICLE, CREATE_ARTICLE_ERROR } = createArticleActionTypes;
+const {
+  CREATE_ARTICLE_LOADING,
+  CREATE_ARTICLE,
+  CREATE_ARTICLE_ERROR,
+  CREATE_ARTICLE_PUBLISHED
+} = createArticleActionTypes;
 
 const setLoading = payload => ({
   type: CREATE_ARTICLE_LOADING,
@@ -18,7 +23,7 @@ const createArticle = articleObject => async (dispatch) => {
     dispatch(setLoading(true));
     const token = localStorage.getItem('token');
     const {
-      tagList, currentSlug, imageChanged, image,
+      tagList, currentSlug, imageChanged, image, published
     } = articleObject;
     const method = currentSlug ? 'edit' : 'post';
     const formData = new FormData();
@@ -44,8 +49,9 @@ const createArticle = articleObject => async (dispatch) => {
         headers: header
       });
       localStorage.setItem('slug', data.data.article.slug);
+      const actionType = published ? CREATE_ARTICLE_PUBLISHED : CREATE_ARTICLE;
       return dispatch({
-        type: CREATE_ARTICLE,
+        type: actionType,
         payload: data.data
       });
     }
@@ -53,8 +59,9 @@ const createArticle = articleObject => async (dispatch) => {
     const { data } = await axiosInstance.put(`/article/${currentSlug}`, formData, {
       headers: header
     });
+    const actionType = published ? CREATE_ARTICLE_PUBLISHED : CREATE_ARTICLE;
     return dispatch({
-      type: CREATE_ARTICLE,
+      type: actionType,
       payload: data.data
     });
   } catch (err) {

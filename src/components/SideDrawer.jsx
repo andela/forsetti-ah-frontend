@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import VerticalListItems from './common/VerticalListItems';
 import NavBarItems from './common/NavBarItems';
 import Backdrop from './common/Backdrop';
-import { openModalAction, hideSideDrawerAction } from '../actions';
+import { openModalAction, hideSideDrawerAction, openTagsModal } from '../actions';
 
-const SideDrawer = ({ show, closed, dispatch }) => {
+const SideDrawer = ({
+  show,
+  closed,
+  dispatch,
+  history
+}) => {
   const openLoginModal = () => {
     dispatch(openModalAction());
     dispatch(hideSideDrawerAction());
   };
+  const openArticleTagsModal = () => dispatch(openTagsModal());
 
   const items = [
     { no: 1, name: 'Tech' },
@@ -26,9 +33,12 @@ const SideDrawer = ({ show, closed, dispatch }) => {
 
   const isLoggedIn = () => {
     const token = localStorage.getItem('token');
+    if (history.location.pathname === '/article/new') {
+      return menuItems.push({ no: 1, text: 'Publish', onClick: openArticleTagsModal });
+    }
 
     if (token) {
-      return menuItems.push({ no: 1, text: 'Write Post' });
+      return menuItems.push({ no: 1, text: 'Write Post', onClick: () => history.push('/article/new') });
     }
     return menuItems.push({ no: 1, text: 'Sign in', onClick: openLoginModal }, { no: 2, text: 'Sign up' });
   };
@@ -61,5 +71,5 @@ const SideDrawer = ({ show, closed, dispatch }) => {
     </React.Fragment>
   );
 };
-const SideDrawerComponent = connect()(SideDrawer);
+const SideDrawerComponent = connect()(withRouter(SideDrawer));
 export { SideDrawerComponent, SideDrawer };
