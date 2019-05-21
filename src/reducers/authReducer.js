@@ -12,6 +12,7 @@ const initialState = {
   token: '',
   rememberToken: false,
   redirect: false,
+  isloading: false,
   submit: false,
   firstname: '',
   lastname: '',
