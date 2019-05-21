@@ -41,6 +41,14 @@ import {
   setProfileLoading,
   updateProfile
 } from './profileActions';
+import {
+  openEmailShareModal,
+  closeEmailShareModal,
+  emailShare,
+  loadingEmailShareStateHandler,
+  emailShareSuccess,
+  emailShareFailure
+} from './emailShareModalActions';
 
 export {
   showSideDrawerAction,
@@ -79,5 +87,11 @@ export {
   closeResetModal,
   getCurrentProfile,
   setProfileLoading,
-  updateProfile
+  updateProfile,
+  openEmailShareModal,
+  closeEmailShareModal,
+  emailShare,
+  loadingEmailShareStateHandler,
+  emailShareSuccess,
+  emailShareFailure,
 };

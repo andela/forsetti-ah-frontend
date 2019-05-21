@@ -11,6 +11,8 @@ import user from './svg/user.svg';
 import notification from './svg/notification.svg';
 import notificationBlue from './svg/notification (1).svg';
 import imageUploadIcon from './svg/profilepix.svg';
+import email from './images/email.png';
+import cancel from './svg/cancel.svg';
 
 export {
   google,
@@ -25,5 +27,7 @@ export {
   user,
   notification,
   notificationBlue,
-  imageUploadIcon
+  imageUploadIcon,
+  email,
+  cancel
 };
