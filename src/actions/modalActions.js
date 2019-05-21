@@ -5,7 +5,6 @@ import {
   CLOSE_SIGNUP_MODAL
 } from '../action-types';
 
-
 /**
  * open the modal
  * @returns {obect} action object
