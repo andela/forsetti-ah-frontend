@@ -8,8 +8,8 @@ import createArticleReducer from './createArticle.reducers';
 import { resetPasswordReducers } from './resetPasswordReducers';
 import profileReducer from './profileReducers';
 import bookmarkReducer from './bookmarkReducer';
-
 import notificationReducers from './notifcationReducers';
+import commentsReducer from './comments.reducers';
 
 
 const Reducer = combineReducers({
@@ -22,7 +22,8 @@ const Reducer = combineReducers({
   notifications: notificationReducers,
   reset: resetPasswordReducers,
   profile: profileReducer,
-  bookmark: bookmarkReducer
+  bookmark: bookmarkReducer,
+  comments: commentsReducer
 });
 
 export {

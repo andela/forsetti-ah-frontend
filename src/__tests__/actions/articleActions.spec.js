@@ -1,12 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axiosInstance from '../../config/axiosConfig';
-import { 
-    loadingStateHandler, 
+import {
+    loadingStateHandler,
     getAritlces,
     getAritlcesSuccessHandler,
     getAritlcesFailureHandler
-
 } from '../../actions';
 import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../../action-types';
 
@@ -29,7 +28,7 @@ describe('Get articles actions', () => {
             count: 0
         });
     });
-    
+
     test('should setup article success action object', () => {
         expect(getAritlcesSuccessHandler()).toEqual({
             type: GET_ARTICLES_SUCCESS,
@@ -44,12 +43,12 @@ describe('Get articles actions', () => {
         });
     });
     test('should get all articles', () => {
-        const payload = { 
+        const payload = {
             data: {
                 articles: {
-                    count: 1, 
-                    nextpage: true, 
-                    rows: articlesMock 
+                    count: 1,
+                    nextpage: true,
+                    rows: articlesMock
                 },
                 pages: 1
             }

@@ -65,7 +65,6 @@ const createArticle = articleObject => async (dispatch) => {
       payload: data.data
     });
   } catch (err) {
-    dispatch(setLoading(false));
     const { response: { data: { message } } } = err;
     return dispatch(createArticleError(message));
   }

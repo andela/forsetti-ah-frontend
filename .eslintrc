@@ -15,8 +15,17 @@
         "jsx-quotes": ["error", "prefer-single"],
         "react/prop-types": 0,
         "no-unused-vars": 0,
+        "require-jsdoc": [2, {
+          "require": {
+            "FunctionDeclaration": false,
+            "MethodDefinition": false,
+            "ClassDeclaration": false
+          }
+          }],
         "comma-dangle": 0,
         "jsx-a11y/no-noninteractive-element-to-interactive-role": 1,
+        "import/no-named-as-default": 0,
+        "no-return-assign": "off",
         "jsx-a11y/anchor-is-valid": [
             "error",
             {

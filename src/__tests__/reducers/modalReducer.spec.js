@@ -30,22 +30,21 @@ describe('Modal', () => {
     });
   });
 
-  it('should return true OPEN_TAGS_MODAL action', () => {
+
+  it('should return true for OPEN_TAGS_MODAL action', () => {
     expect(modalReducer(initialState, {
       type: OPEN_TAGS_MODAL,
     })).toEqual({
-      displayModal: false,
-      showModal: false,
+      ...initialState,
       showTagsModal: true
     });
   });
 
-  it('should return true CLOSE_TAGS_MODAL action', () => {
+  it('should return false for CLOSE_TAGS_MODAL action', () => {
     expect(modalReducer(initialState, {
       type: CLOSE_TAGS_MODAL,
     })).toEqual({
-      displayModal: false,
-      showModal: false,
+      ...initialState,
       showTagsModal: false
     });
   });

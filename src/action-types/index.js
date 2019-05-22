@@ -8,6 +8,7 @@ import createArticleActionTypes from './articles.action-type';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
 import profileActionTypes from './profileActionTypes';
 import bookmarkActionTypes from './bookmarkActionTypes';
+import commentTypes from './commentTypes';
 
 const {
   LOGIN_USER_BEGIN,
@@ -48,6 +49,12 @@ const {
   OPEN_READ_STATS_MODAL,
   CLOSE_READ_STATS_MODAL
 } = profileActionTypes;
+const {
+  COMMENT_LOADING,
+  POST_COMMENT_SUCCESS,
+  POST_COMMENT_ERROR,
+  POST_THREAD_COMMENT
+} = commentTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -92,5 +99,9 @@ export {
   BOOKMARK_ARTICLE_SUCCESS,
   BOOKMARK_ARTICLE_FAILURE,
   OPEN_READ_STATS_MODAL,
-  CLOSE_READ_STATS_MODAL
+  CLOSE_READ_STATS_MODAL,
+  COMMENT_LOADING,
+  POST_COMMENT_SUCCESS,
+  POST_COMMENT_ERROR,
+  POST_THREAD_COMMENT
 };

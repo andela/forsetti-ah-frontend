@@ -25,7 +25,7 @@ class LandingPage extends Component {
     const { getAllArticles, openModal } = this.props;
     const { pageCount } = this.state;
     getAllArticles(pageCount);
-    if (action === 'REPLACE') openModal();
+    if (action === 'REPLACE' || action === 'PUSH') openModal();
   }
 
   pageCountHandler = () => {

@@ -22,7 +22,9 @@ const article = {
     slug: 'Lorem ipsum dolor sit amet-12345',
     title: 'Lorem ipsum dolor sit amet',
     success: true
-  }
+  },
+  comments: { isLoading: false },
+  auth: { token: ''}
 };
 const error = {
   article: {
@@ -64,10 +66,11 @@ describe('Get single article component', () => {
   });
 
   test('should return mapStateToProps object', () => {
-    const action = mapStateToProps(auth);
+    const action = mapStateToProps(article);
     expect(action).toEqual({
-      article: auth.article,
-      token: auth.auth.token,
+      article: article.article,
+      commentLoading: article.comments.isLoading,
+      token: ''
     });
   });
 });
