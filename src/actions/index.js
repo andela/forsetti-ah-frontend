@@ -15,7 +15,8 @@ import {
   signupBegin,
   signupSuccess,
   signupFailure,
-  signUpUser
+  signUpUser,
+  logoutUser
 } from './authActions';
 import {
   loadingStateHandler,
@@ -79,5 +80,6 @@ export {
   closeResetModal,
   getCurrentProfile,
   setProfileLoading,
-  updateProfile
+  updateProfile,
+  logoutUser
 };

@@ -45,4 +45,15 @@ describe('Create Article Reducer', () => {
       saved: true
     });
   });
+
+  it('should return CREATE_ARTICLE_PUBLISHED on succesful post', () => {
+    expect(articleReducer(undefined, {
+      type: 'CREATE_ARTICLE_PUBLISHED',
+      payload
+    })).toEqual({
+      createArticle: payload,
+      isLoading: false,
+      published: true,
+    });
+  });
 });

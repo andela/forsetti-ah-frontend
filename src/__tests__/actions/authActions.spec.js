@@ -1,8 +1,14 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import axios from '../../config/axiosConfig';
-import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../../action-types';
-import { loginUser, loadingStateHandler, onLoginSuccessHandler, onFailureHandler } from '../../actions/authActions';
+import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGOUT_USER } from '../../action-types';
+import {
+  loginUser,
+  loadingStateHandler,
+  onLoginSuccessHandler,
+  onFailureHandler,
+  logoutUser
+} from '../../actions/authActions';
 
 
 const user= {
@@ -38,6 +44,16 @@ describe('Auth actions', () => {
       type: LOGIN_USER_SUCCESS,
       payload: response,
       rememberLogin
+    });
+  });
+
+  it('should return correct action for onLoginSuccessHandler default', () => {
+
+    const action = onLoginSuccessHandler();
+    expect(action).toEqual({
+      type: LOGIN_USER_SUCCESS,
+      payload: {},
+      rememberLogin: false
     });
   });
 
@@ -83,5 +99,15 @@ describe('Auth actions', () => {
         const actionTypes = dispatchedActions.map(action => action.type);
         expect(actionTypes).toEqual(expected);
       });
+  });
+
+  it('should return logout user action creator', () => {
+    const store = mockedStore({});
+
+    return store.dispatch(logoutUser())
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0].type).toEqual(LOGOUT_USER)
+    });
   });
 });
