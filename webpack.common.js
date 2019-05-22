@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -35,6 +36,16 @@ module.exports = {
           'file-loader'
         ]
       },
+      {
+         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+         use: "file-loader?limit=10000&mimetype=application/octet-stream"
+       }, {
+         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+         use: "file-loader"
+       }, {
+         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+         use: "file-loader?limit=10000&mimetype=image/svg+xml"
+       },
     ]
   },
   resolve: {
@@ -49,6 +60,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
       title: "production"
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
     })
   ],
   output: {

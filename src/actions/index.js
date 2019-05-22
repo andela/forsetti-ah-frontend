@@ -1,11 +1,16 @@
 import { showSideDrawerAction, hideSideDrawerAction } from './navBarActions';
 import {
+  openModalAction,
+  closeModalAction,
+  openTagsModal,
+  closeTagsModal
+} from './modalActions';
+import {
   loginUser,
   getUserData,
   getUserDataFailure,
   getUserDataSuccess
 } from './authActions';
-import { openModalAction, closeModalAction } from './modalActions';
 import {
   loadingStateHandler,
   getAritlcesSuccessHandler,
@@ -14,6 +19,7 @@ import {
   getSingleArticle,
   singleArticle
 } from './articleActions';
+import { setLoading, createArticle, createArticleError } from './articles.actions';
 
 export {
   showSideDrawerAction,
@@ -21,12 +27,17 @@ export {
   loginUser,
   openModalAction,
   closeModalAction,
+  openTagsModal,
+  closeTagsModal,
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
   getAritlces,
   getSingleArticle,
   singleArticle,
+  setLoading,
+  createArticle,
+  createArticleError,
   getUserData,
   getUserDataFailure,
   getUserDataSuccess

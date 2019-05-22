@@ -4,14 +4,15 @@ import { modalReducer } from './modalReducer';
 import { authReducer } from './authReducer';
 import { articleReducer } from './articleReducers';
 import singleArticleReducer from './articleReducer';
-
+import createArticleReducer from './createArticle.reducers';
 
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
   modal: modalReducer,
   auth: authReducer,
   articles: articleReducer,
-  article: singleArticleReducer
+  article: singleArticleReducer,
+  createArticle: createArticleReducer
 });
 
 export { Reducer, articleReducer, singleArticleReducer };
