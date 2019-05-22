@@ -1,12 +1,15 @@
 import {
   GET_PROFILE,
   PROFILE_LOADING,
-  UPDATE_PROFILE
+  UPDATE_PROFILE,
+  OPEN_READ_STATS_MODAL,
+  CLOSE_READ_STATS_MODAL
 } from '../action-types';
 
 const initialState = {
   profile: {},
-  loading: false
+  loading: false,
+  isReadStatsModalOpen: false
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,6 +30,16 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
         loading: false
+      };
+    case OPEN_READ_STATS_MODAL:
+      return {
+        ...state,
+        isReadStatsModalOpen: true
+      };
+    case CLOSE_READ_STATS_MODAL:
+      return {
+        ...state,
+        isReadStatsModalOpen: false
       };
     default:
       return state;

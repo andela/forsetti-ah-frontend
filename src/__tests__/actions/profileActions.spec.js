@@ -4,6 +4,7 @@ import { setProfileLoading, getCurrentProfile, updateProfile, currentProfile, ne
 import { GET_PROFILE, PROFILE_LOADING, UPDATE_PROFILE } from '../../action-types/profileActionTypes';
 import configureMockStore from 'redux-mock-store';
 import axios from '../../config/axiosConfig';
+import { openReadStatsModal, closeReadStatsModal } from '../../actions';
 
 
 const middlewares = [thunk];
@@ -52,7 +53,7 @@ describe('Profile Actions', () => {
             type: 'PROFILE_LOADING',
             payload: profile
           };
-      
+
           return store.dispatch(getCurrentProfile(profile, false))
             .then(() => {
               expect(store.getActions()[0].type).toEqual(expected.type);
@@ -81,7 +82,7 @@ describe('Profile Actions', () => {
           type: 'PROFILE_LOADING',
           payload: profile
         };
-    
+
         return store.dispatch(updateProfile(profile, false))
           .then(() => {
             expect(store.getActions()[0].type).toEqual(expected.type);
@@ -90,7 +91,22 @@ describe('Profile Actions', () => {
 
 
 
-      
+
 })
 
 
+describe('Profile Actions', () => {
+  it('should open the read stats modal', () => {
+    const action = openReadStatsModal();
+    expect(action).toEqual({
+      type: 'OPEN_READ_STATS_MODAL'
+    });
+  });
+
+  it('should close the read stats modal', () => {
+    const action = closeReadStatsModal();
+    expect(action).toEqual({
+      type: 'CLOSE_READ_STATS_MODAL'
+    });
+  });
+});

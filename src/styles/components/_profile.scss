@@ -13,14 +13,10 @@
     .list {
       font-size: 10px;
     }
-  
-    .btn-color{ 
+
+    .btn-color{
         background-color: #40617b !important;
         border-color: none;
-    }
-
-    .btn-color:hover { 
-        
     }
 
     .borderColor {
@@ -39,12 +35,12 @@
 
 .EditProfile {
   min-height: 70vh;
+
   .edit-form {
      input {
        height: 50px;
        border: 1px solid #40617b;
        outline: none;
-       
      }
      textarea {
        resize: none;
@@ -73,3 +69,14 @@
   }
 }
 
+.readstats {
+  &-h5 {
+    margin: 3rem 0 0 1rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  &-body {
+    padding: 0 1rem 1rem 1rem;
+  }
+}

@@ -1,5 +1,11 @@
 import axios from '../config/axiosConfig';
-import { GET_PROFILE, PROFILE_LOADING, UPDATE_PROFILE } from '../action-types';
+import {
+  GET_PROFILE,
+  PROFILE_LOADING,
+  UPDATE_PROFILE,
+  OPEN_READ_STATS_MODAL,
+  CLOSE_READ_STATS_MODAL
+} from '../action-types';
 
 const token = window.localStorage.getItem('token');
 
@@ -11,6 +17,14 @@ export const setProfileLoading = () => ({
 export const currentProfile = data => ({
   type: GET_PROFILE,
   payload: { data }
+});
+
+export const openReadStatsModal = () => ({
+  type: OPEN_READ_STATS_MODAL
+});
+
+export const closeReadStatsModal = () => ({
+  type: CLOSE_READ_STATS_MODAL
 });
 
 export const getCurrentProfile = id => async (dispatch) => {

@@ -11,6 +11,7 @@ import bookmarkReducer from './bookmarkReducer';
 
 import notificationReducers from './notifcationReducers';
 
+
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
   modal: modalReducer,

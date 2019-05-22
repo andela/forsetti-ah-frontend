@@ -46,7 +46,9 @@ import {
 import {
   getCurrentProfile,
   setProfileLoading,
-  updateProfile
+  updateProfile,
+  openReadStatsModal,
+  closeReadStatsModal
 } from './profileActions';
 
 export {
@@ -90,5 +92,7 @@ export {
   logoutUser,
   bookmarkArticle,
   bookmarkArticleSuccessHandler,
-  bookmarkArticleFailureHandler
+  bookmarkArticleFailureHandler,
+  openReadStatsModal,
+  closeReadStatsModal
 };
