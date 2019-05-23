@@ -1,3 +1,4 @@
 import formatDate from './formatDate.util';
+import tokenExpired from './tokenExpired.util';
 
-export default formatDate;
+export { formatDate, tokenExpired };

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import formatDate from '../../utils';
+import { formatDate } from '../../utils';
 import calender from '../../assets/images/calendar.svg';
 
 export const ArticleList = ({

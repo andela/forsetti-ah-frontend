@@ -90,11 +90,7 @@ describe('create article actions', () => {
       {
         type: CREATE_ARTICLE_LOADING,
         payload: false
-      },
-      {
-        type: CREATE_ARTICLE_ERROR,
-        payload: 'error message'
-      },
+      }
     ];
 
     store.dispatch(createArticle(articleInfo)).catch(() => {
