@@ -134,7 +134,7 @@ describe('<LoginForm />', () => {
       LoginFormComponent = shallow(<LoginForm {...props} />);
       expect(LoginFormComponent.find(Spinner)).toHaveLength(0);
       });
-  
+
   it('renders correctly', () => {
     expect(LoginFormComponent).toMatchSnapshot();
   });

@@ -3,13 +3,19 @@ import {
   openModalAction,
   closeModalAction,
   openTagsModal,
-  closeTagsModal
+  closeTagsModal,
+  openSignupModalAction,
+  closeSignUpModalAction
 } from './modalActions';
 import {
   loginUser,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess
+  getUserDataSuccess,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser
 } from './authActions';
 import {
   loadingStateHandler,
@@ -40,5 +46,11 @@ export {
   createArticleError,
   getUserData,
   getUserDataFailure,
-  getUserDataSuccess
+  getUserDataSuccess,
+  openSignupModalAction,
+  closeSignUpModalAction,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser
 };
