@@ -1,6 +1,11 @@
-import { articleReducer, initialState } from '../../reducers/articleReducers';
+import { articleReducer, initialState, getTopRatedReducer } from '../../reducers/articleReducers';
 
-import { GET_ARTICLES_BEGIN, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL } from '../../action-types';
+import {
+  GET_ARTICLES_BEGIN,
+  GET_ARTICLES_SUCCESS,
+  GET_ARTICLES_FAIL,
+  GET_TOP_RATED
+} from '../../action-types';
 import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
 
 describe('articleReducers', () => {
@@ -38,5 +43,18 @@ describe('articleReducers', () => {
         articlesError: expect.any(String),
         isLoading: false
     });
+  });
+});
+
+describe('Get Top rated reducer', () => {
+  it('should return top rated reducer', () => {
+    const reducer = getTopRatedReducer(undefined, {
+      type: GET_TOP_RATED,
+      payload: []
+    });
+
+    expect(reducer).toEqual({
+      topRated: []
+    })
   });
 });

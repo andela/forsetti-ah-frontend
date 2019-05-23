@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { navBarReducer } from './navBarReducers';
 import { modalReducer } from './modalReducer';
 import { authReducer } from './authReducer';
-import { articleReducer } from './articleReducers';
+import { articleReducer, getTopRatedReducer } from './articleReducers';
 import singleArticleReducer from './articleReducer';
 import createArticleReducer from './createArticle.reducers';
 import { resetPasswordReducers } from './resetPasswordReducers';
@@ -22,12 +22,14 @@ const Reducer = combineReducers({
   notifications: notificationReducers,
   reset: resetPasswordReducers,
   profile: profileReducer,
-  bookmark: bookmarkReducer
+  bookmark: bookmarkReducer,
+  topArticles: getTopRatedReducer
 });
 
 export {
   Reducer,
   articleReducer,
   singleArticleReducer,
-  notificationReducers
+  notificationReducers,
+  getTopRatedReducer
 };

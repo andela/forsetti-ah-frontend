@@ -31,6 +31,8 @@ import {
   getAritlces,
   getSingleArticle,
   singleArticle,
+  getTopRatedArticles,
+  topRatedArticles
 } from './articleActions';
 import { setLoading, createArticle, createArticleError } from './articles.actions';
 import { getNotifications, getUserNotifications } from './notifcationActions';
@@ -94,5 +96,7 @@ export {
   bookmarkArticleSuccessHandler,
   bookmarkArticleFailureHandler,
   openReadStatsModal,
-  closeReadStatsModal
+  closeReadStatsModal,
+  getTopRatedArticles,
+  topRatedArticles
 };

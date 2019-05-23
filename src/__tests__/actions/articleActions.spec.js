@@ -5,17 +5,23 @@ import {
     loadingStateHandler, 
     getAritlces,
     getAritlcesSuccessHandler,
-    getAritlcesFailureHandler
-
+    getAritlcesFailureHandler,
+    getTopRatedArticles,
+    topRatedArticles
 } from '../../actions';
-import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../../action-types';
+import {
+    GET_ARTICLES_SUCCESS,
+    GET_ARTICLES_FAIL,
+    GET_ARTICLES_BEGIN,
+    GET_TOP_RATED
+} from '../../action-types';
 
 import { articles as articlesMock, articleFail } from '../../testUtils/testsMockData/articles.mock-data';
 
-describe('Get articles actions', () => {
-    const middleware = [thunk];
-    const mockStore = configureMockStore(middleware);
+const middleware = [thunk];
+const mockStore = configureMockStore(middleware);
 
+describe('Get articles actions', () => {
     test('should setup loading state action object', () => {
         expect(loadingStateHandler()).toEqual({
             type: GET_ARTICLES_BEGIN
@@ -75,4 +81,40 @@ describe('Get articles actions', () => {
                     expect(store.getActions()[1].type).toEqual(expectedActions[1].type);
                 })
     });
+});
+
+describe('Get Toprated articles', () => {
+  it('should return default payload', () => {
+      const action = topRatedArticles();
+
+      expect(action).toEqual({
+          type: GET_TOP_RATED,
+          payload: []
+      })
+  });
+
+  it('should return get top articles action creator', () => {
+      const store = mockStore({});
+      const payload = {
+              data: {
+                  article: [{
+                    id: 'efbd2ccd-4e06-4ecb-bfe0-baf303cd5577',
+                    slug: 'Gildard is working on it-12345678',
+                    title: 'Gildard is working on it',
+                    description: 'gildard@dickson.com',
+                    body: 'Dickson is a boy',
+                    image: 'https://res.cloudinary.com/forsetti/image/upload/v1554746740/forsetti/b9leichyadygoqudemre.jpg',
+                    tagList: null,
+                    createdAt: '2019-05-22T11:44:36.650Z',
+                    updatedAt: '2019-05-22T11:44:36.650Z',
+                  }]
+              }
+        };
+      axiosInstance.get = jest.fn().mockReturnValue(Promise.resolve({ data: payload}));
+
+      return store.dispatch(getTopRatedArticles())
+      .then(() => {
+          expect(store.getActions()[0].type).toEqual(GET_TOP_RATED);
+      });
+  });
 });

@@ -1,6 +1,6 @@
-import { GET_SINGLE_ARTICLE, ARTICLE_NOT_FOUND } from '../action-types';
+import { GET_SINGLE_ARTICLE, ARTICLE_NOT_FOUND, GET_TOP_RATED } from '../action-types';
 
-const defualtState = {
+const defaultSingleArticle = {
   author: {
     id: '',
     bio: '',
@@ -19,7 +19,7 @@ const defualtState = {
   success: true
 };
 
-const singleArticleReducer = (state = defualtState, action) => {
+const singleArticleReducer = (state = defaultSingleArticle, action) => {
   const { type } = action;
 
   switch (type) {
