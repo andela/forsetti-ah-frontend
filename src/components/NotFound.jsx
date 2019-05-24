@@ -17,7 +17,7 @@ const NotFound = ({ text = 'page' }) => (
           You may need to consider going back to our
           <a
             href='/'
-            className='px-1'
+            className=' px-1 Notfound_link'
           >
             Home Page
           </a>

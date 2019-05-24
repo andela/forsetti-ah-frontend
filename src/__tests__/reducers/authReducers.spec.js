@@ -1,6 +1,6 @@
 import { authReducer, initialState } from '../../reducers/authReducer';
 
-import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../../action-types';
+import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE }  from '../../action-types';
 
 const successState = {
   isLoading: false,

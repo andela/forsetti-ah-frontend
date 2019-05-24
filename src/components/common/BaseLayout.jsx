@@ -14,6 +14,7 @@ import Article from '../../containers/Article';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 import { AuthSocialComponent } from '../AuthSocial';
 import SignUpDefault from '../SignUpForm';
+import NotificationPage from '../../containers/NotificationPage';
 
 
 const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
@@ -36,8 +37,9 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
         <AuthorizationHOCUnit exact path='/article/new' component={CreateArticlePage} />
         <Route exact path='/article/:slug' component={Article} />
         <Route path='/auth/social' component={AuthSocialComponent} />
-        <Route component={NotFoundPage} />
+        <AuthorizationHOCUnit exact path='/profiles/notification' component={NotificationPage} />
         <Route path='/signup' component={SignUpDefault} />
+        <Route component={NotFoundPage} />
       </Switch>
       <div className='footer'>
         <Row>

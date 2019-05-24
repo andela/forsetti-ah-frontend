@@ -1,5 +1,6 @@
 import { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } from '../action-types';
 
+
 /**
  * Shows the sideDrawer for mobile view
  */

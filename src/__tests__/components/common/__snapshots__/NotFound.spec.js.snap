@@ -31,7 +31,7 @@ exports[`App Should maintain existing snapshot 1`] = `
         <br />
         You may need to consider going back to our
         <a
-          className="px-1"
+          className=" px-1 Notfound_link"
           href="/"
         >
           Home Page

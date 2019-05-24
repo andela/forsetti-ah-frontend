@@ -26,6 +26,7 @@ import {
   singleArticle
 } from './articleActions';
 import { setLoading, createArticle, createArticleError } from './articles.actions';
+import { getNotifications, getUserNotifications } from './notifcationActions';
 
 export {
   showSideDrawerAction,
@@ -52,5 +53,7 @@ export {
   signupBegin,
   signupSuccess,
   signupFailure,
-  signUpUser
+  signUpUser,
+  getNotifications,
+  getUserNotifications
 };
