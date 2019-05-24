@@ -3,7 +3,10 @@ import {
   LOGIN_USER_FAILURE,
   LOGIN_USER_BEGIN,
   GET_USER_DATA,
-  GET_USER_DATA_FAIL
+  GET_USER_DATA_FAIL,
+  SIGNUP_BEGIN,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE
 } from '../action-types';
 
 import axios from '../config/axiosConfig';
@@ -55,6 +58,21 @@ const getUserDataFailure = () => ({
   payload: { error },
 });
 
+const signupBegin = () => ({
+  type: SIGNUP_BEGIN
+});
+
+const signupSuccess = (response = {}) => ({
+  type: SIGNUP_SUCCESS,
+  payload: response
+});
+
+const signupFailure = (message = {}) => ({
+  type: SIGNUP_FAILURE,
+  message
+});
+
+// action-creators
 /**
  * @param {object} loginObject email and password object
  * @param {boolean} rememberLogin
@@ -97,9 +115,26 @@ const getUserData = userArray => (dispatch) => {
   return dispatch(getUserDataFailure());
 };
 
+const signUpUser = user => async (dispatch) => {
+  try {
+    dispatch(signupBegin());
+    const response = await axios.post('/auth/signup', user);
+    const { user: userObject, token } = response.data.data[0];
+    const { message } = response.data;
+    return dispatch(signupSuccess({ userObject, message, token }));
+  } catch (err) {
+    const { message } = err.response.data;
+    return dispatch(signupFailure(message));
+  }
+};
+
 export {
   getUserData,
   getUserDataFailure,
   getUserDataSuccess,
-  loginUser
+  loginUser,
+  signupBegin,
+  signupSuccess,
+  signupFailure,
+  signUpUser,
 };

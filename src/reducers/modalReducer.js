@@ -1,6 +1,7 @@
 const initialState = {
   showModal: false,
-  showTagsModal: false
+  showTagsModal: false,
+  displayModal: false
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -22,6 +23,14 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         showTagsModal: false
+      };
+    case 'OPEN_SIGNUP_MODAL':
+      return {
+        displayModal: true
+      };
+    case 'CLOSE_SIGNUP_MODAL':
+      return {
+        displayModal: false,
       };
     default:
       return state;

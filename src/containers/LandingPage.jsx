@@ -3,7 +3,14 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
 import { getAritlces, openModalAction } from '../actions';
-import { Articles } from '../components';
+import {
+  Articles,
+  SignUpModalComponent,
+  HeaderComponent,
+  Footer,
+  SideDrawerComponent,
+  LoginModalComponent
+} from '../components';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -32,7 +39,11 @@ class LandingPage extends Component {
   }
 
   render() {
-    const { articles } = this.props;
+    const {
+      articles,
+      showSideDrawer: { showSideDrawer },
+      modal: { showModal, displayModal }
+    } = this.props;
     return (
       <div className='landing-page'>
         <div className='container landing'>
@@ -70,14 +81,23 @@ class LandingPage extends Component {
             <div className='col-md-4' />
           </div>
         </div>
+        <LoginModalComponent isOpen={showModal} />
+        <SignUpModalComponent isOpen={displayModal} />
+        <SideDrawerComponent show={showSideDrawer} closed={this.hideSideDrawerHandler} />
+        <Row className='articles'>
+          <Col sm={{ size: 6 }} />
+          <Col sm={{ size: 4 }} />
+        </Row>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  articles: state.articles
-});
+const mapStateToProps = (state) => {
+  const { articles } = state;
+  const { showSideDrawer, modal } = state;
+  return { articles, showSideDrawer, modal };
+};
 const mapDispatchToProps = {
   openModal: openModalAction,
   getAllArticles: page => getAritlces(page)

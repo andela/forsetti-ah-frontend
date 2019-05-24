@@ -13,6 +13,8 @@ import NotFoundPage from '../../containers/NotFoundPage';
 import Article from '../../containers/Article';
 import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 import { AuthSocialComponent } from '../AuthSocial';
+import SignUpDefault from '../SignUpForm';
+
 
 const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
   const showSideDrawerHandler = () => {
@@ -35,6 +37,7 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
         <Route exact path='/article/:slug' component={Article} />
         <Route path='/auth/social' component={AuthSocialComponent} />
         <Route component={NotFoundPage} />
+        <Route path='/signup' component={SignUpDefault} />
       </Switch>
       <div className='footer'>
         <Row>

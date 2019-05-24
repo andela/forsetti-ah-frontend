@@ -5,7 +5,12 @@ import { Link, Redirect, withRouter } from 'react-router-dom';
 import VerticalListItems from './common/VerticalListItems';
 import NavBarItems from './common/NavBarItems';
 import Backdrop from './common/Backdrop';
-import { openModalAction, hideSideDrawerAction, openTagsModal } from '../actions';
+import {
+  openModalAction,
+  hideSideDrawerAction,
+  openTagsModal,
+  openSignupModalAction
+} from '../actions';
 
 const SideDrawer = ({
   show,
@@ -15,6 +20,10 @@ const SideDrawer = ({
 }) => {
   const openLoginModal = () => {
     dispatch(openModalAction());
+    dispatch(hideSideDrawerAction());
+  };
+  const openSignUpModal = () => {
+    dispatch(openSignupModalAction());
     dispatch(hideSideDrawerAction());
   };
   const openArticleTagsModal = () => dispatch(openTagsModal());
@@ -40,7 +49,12 @@ const SideDrawer = ({
     if (token) {
       return menuItems.push({ no: 1, text: 'Write Post', onClick: () => history.push('/article/new') });
     }
-    return menuItems.push({ no: 1, text: 'Sign in', onClick: openLoginModal }, { no: 2, text: 'Sign up' });
+    return (
+      menuItems.push(
+        { no: 1, text: 'Sign in', onClick: openLoginModal },
+        { no: 2, text: 'Sign up', onClick: openSignUpModal }
+      )
+    );
   };
 
   isLoggedIn();
