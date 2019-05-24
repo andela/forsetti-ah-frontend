@@ -10,7 +10,7 @@ class AuthSocial extends Component {
     window.localStorage.setItem('token', token);
     const { history, dispatch } = this.props;
     dispatch(closeModalAction());
-    history.push('/dashboard');
+    history.push('/');
   }
 
   /**

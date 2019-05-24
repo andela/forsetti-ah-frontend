@@ -48,7 +48,7 @@ export const ArticleList = ({
                   readingTime && (
                     <div className='col-12 mt-md-3'>
                       <h3 className='reading-time font-weight-bold'>
-                        {Math.ceil(Number(readingTime).toFixed(2))}
+                        {Math.ceil(readingTime / 1000.0)}
                         {' '}
                         min read
                       </h3>

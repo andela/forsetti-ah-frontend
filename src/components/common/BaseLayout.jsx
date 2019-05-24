@@ -19,6 +19,8 @@ import NotificationPage from '../../containers/NotificationPage';
 import { ForgotPassword } from '../resetPassword/ForgotPassword';
 import GetResetPasswordToken from '../resetPassword/GetResetPasswordToken';
 import { ResetPassword } from '../resetPassword/ResetPassword';
+import { Profile } from '../UserProfile';
+import { EditProfile } from '../EditUserProfile';
 
 const BaseLayoutComponent = ({
   showSideDrawer, modal, dispatch, reset
@@ -46,6 +48,8 @@ const BaseLayoutComponent = ({
         <Route exact path='/article/:slug' component={Article} />
         <Route path='/auth/social' component={AuthSocialComponent} />
         <AuthorizationHOCUnit exact path='/profiles/notification' component={NotificationPage} />
+        <AuthorizationHOCUnit exact path='/profile' component={Profile} />
+        <AuthorizationHOCUnit exact path='/editProfile' component={EditProfile} />
         <Route path='/signup' component={SignUpDefault} />
         <Route path='/auth/resetpassword' component={GetResetPasswordToken} />
         <Route component={NotFoundPage} />

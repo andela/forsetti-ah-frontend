@@ -81,9 +81,7 @@ class LandingPage extends Component {
             <div className='col-md-4' />
           </div>
         </div>
-        <LoginModalComponent isOpen={showModal} />
         <SignUpModalComponent isOpen={displayModal} />
-        <SideDrawerComponent show={showSideDrawer} closed={this.hideSideDrawerHandler} />
         <Row className='articles'>
           <Col sm={{ size: 6 }} />
           <Col sm={{ size: 4 }} />
