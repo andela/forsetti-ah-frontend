@@ -5,6 +5,7 @@ import modalTypes from './modalTypes';
 import notificationActionTypes from './notificationActionTypes';
 import articleActionTypes from './articleActionTypes';
 import createArticleActionTypes from './articles.action-type';
+import resetPasswordActionTypes from './resetPasswordActionTypes';
 
 const {
   LOGIN_USER_BEGIN,
@@ -23,6 +24,19 @@ const {
 const { SHOW_SIDEDRAWER, HIDE_SIDEDRAWER } = navBarActionTypes;
 const { GET_ARTICLES_BEGIN, GET_ARTICLES_FAIL, GET_ARTICLES_SUCCESS } = articleActionTypes;
 const { GET_NOTIFICATION, LOADING_NOTIFICATION } = notificationActionTypes;
+const {
+  CLOSE_FORGOT_MODAL,
+  OPEN_FORGOT_MODAL,
+  FORGOT_PASSWORD_BEGIN,
+  FORGOT_PASSWORD_SUCCESS,
+  FORGOT_PASSWORD_FAILURE,
+  RESET_PASSWORD_BEGIN,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAILURE,
+  GET_RESET_TOKEN,
+  OPEN_RESET_MODAL,
+  CLOSE_RESET_MODAL
+} = resetPasswordActionTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -48,5 +62,16 @@ export {
   CLOSE_SIGNUP_MODAL,
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
-  SIGNUP_FAILURE
+  SIGNUP_FAILURE,
+  CLOSE_FORGOT_MODAL,
+  OPEN_FORGOT_MODAL,
+  FORGOT_PASSWORD_BEGIN,
+  FORGOT_PASSWORD_SUCCESS,
+  FORGOT_PASSWORD_FAILURE,
+  RESET_PASSWORD_BEGIN,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAILURE,
+  GET_RESET_TOKEN,
+  OPEN_RESET_MODAL,
+  CLOSE_RESET_MODAL
 };

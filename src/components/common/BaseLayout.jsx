@@ -16,8 +16,13 @@ import { AuthSocialComponent } from '../AuthSocial';
 import SignUpDefault from '../SignUpForm';
 import NotificationPage from '../../containers/NotificationPage';
 
+import { ForgotPassword } from '../resetPassword/ForgotPassword';
+import GetResetPasswordToken from '../resetPassword/GetResetPasswordToken';
+import { ResetPassword } from '../resetPassword/ResetPassword';
 
-const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
+const BaseLayoutComponent = ({
+  showSideDrawer, modal, dispatch, reset
+}) => {
   const showSideDrawerHandler = () => {
     dispatch(showSideDrawerAction());
   };
@@ -27,11 +32,14 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
   };
   const { showSideDrawer: showSideDraw } = showSideDrawer;
   const { showModal } = modal;
+  const { isModalOpen, isResetModalOpen } = reset;
   return (
     <Router>
       <SideDrawerComponent show={showSideDraw} closed={hideSideDrawerHandler} />
       <LoginModal isOpen={showModal} />
       <HeaderComponent clicked={showSideDrawerHandler} />
+      <ForgotPassword isOpen={isModalOpen} />
+      <ResetPassword isOpen={isResetModalOpen} />
       <Switch>
         <Route path='/' component={LandingPageComponent} exact />
         <AuthorizationHOCUnit exact path='/article/new' component={CreateArticlePage} />
@@ -39,6 +47,7 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
         <Route path='/auth/social' component={AuthSocialComponent} />
         <AuthorizationHOCUnit exact path='/profiles/notification' component={NotificationPage} />
         <Route path='/signup' component={SignUpDefault} />
+        <Route path='/auth/resetpassword' component={GetResetPasswordToken} />
         <Route component={NotFoundPage} />
       </Switch>
       <div className='footer'>
@@ -53,8 +62,8 @@ const BaseLayoutComponent = ({ showSideDrawer, modal, dispatch }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { showSideDrawer, modal } = state;
-  return { showSideDrawer, modal };
+  const { showSideDrawer, modal, reset } = state;
+  return { showSideDrawer, modal, reset };
 };
 
 const BaseLayout = connect(mapStateToProps)(BaseLayoutComponent);

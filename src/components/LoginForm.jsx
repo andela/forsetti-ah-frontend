@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { loginUser } from '../actions';
+import { loginUser, openModal, closeModalAction } from '../actions';
 import Button from './common/Button';
 import Link from './common/Link';
 import FormErrorText from './common/FormErrorText';
@@ -121,6 +121,16 @@ class LoginForm extends Component {
     }
   }
 
+  closeModal = () => {
+    const { dispatch } = this.props;
+    dispatch(closeModalAction());
+    dispatch(openModal());
+  }
+
+  openModal = () => {
+
+  }
+
   render() {
     const { auth: { isLoading } } = this.props;
     const {
@@ -168,7 +178,15 @@ class LoginForm extends Component {
             </Label>
           </div>
           <div className='login-form-supplementary-forgot'>
-            <Link href='/?forgot-password=1'>Forgot password?</Link>
+            <p
+              role='presentation'
+              onClick={this.closeModal}
+              tabIndex='-1'
+              onKeyDown={null}
+            >
+Forgot password?
+
+            </p>
           </div>
         </div>
         <Button className='login-form-btn' onClick={this.processLogin} disabled={disabled}>

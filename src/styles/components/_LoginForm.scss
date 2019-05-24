@@ -6,9 +6,14 @@
     display: flex;
     justify-content: space-between;
 
+   &-forgot {
+     cursor: pointer;
+     color: $primary-color;
+   }
+
     &-remember {
       color: $primary-color;
-      margin-left: 1.5rem; 
+      margin-left: 1.5rem;
     }
   }
 

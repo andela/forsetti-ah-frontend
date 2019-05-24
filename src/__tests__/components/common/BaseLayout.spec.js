@@ -8,6 +8,9 @@ describe('<BaseLayout />', () => {
       showSideDrawer: true,
       modal: {
         showModal: true
+      },
+      reset: {
+        isModalOpen: true
       }
     };
     const tree = shallow(<BaseLayoutComponent {...props} />);

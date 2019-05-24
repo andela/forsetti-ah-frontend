@@ -90,7 +90,7 @@ describe('create article actions', () => {
       {
         type: CREATE_ARTICLE_LOADING,
         payload: false
-      }
+      },
     ];
 
     store.dispatch(createArticle(articleInfo)).catch(() => {
