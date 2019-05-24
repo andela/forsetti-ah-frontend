@@ -6,6 +6,7 @@ import { articleReducer } from './articleReducers';
 import singleArticleReducer from './articleReducer';
 import createArticleReducer from './createArticle.reducers';
 import { resetPasswordReducers } from './resetPasswordReducers';
+import profileReducer from './profileReducers';
 
 import notificationReducers from './notifcationReducers';
 
@@ -17,7 +18,8 @@ const Reducer = combineReducers({
   article: singleArticleReducer,
   createArticle: createArticleReducer,
   notifications: notificationReducers,
-  reset: resetPasswordReducers
+  reset: resetPasswordReducers,
+  profile: profileReducer
 });
 
 export {

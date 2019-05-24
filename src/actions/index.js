@@ -36,6 +36,11 @@ import {
   openResetModal,
   closeResetModal
 } from './resetPasswordActions';
+import {
+  getCurrentProfile,
+  setProfileLoading,
+  updateProfile
+} from './profileActions';
 
 export {
   showSideDrawerAction,
@@ -71,5 +76,8 @@ export {
   resetPassword,
   getToken,
   openResetModal,
-  closeResetModal
+  closeResetModal,
+  getCurrentProfile,
+  setProfileLoading,
+  updateProfile
 };

@@ -6,6 +6,7 @@ import notificationActionTypes from './notificationActionTypes';
 import articleActionTypes from './articleActionTypes';
 import createArticleActionTypes from './articles.action-type';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
+import profileActionTypes from './profileActionTypes';
 
 const {
   LOGIN_USER_BEGIN,
@@ -37,6 +38,7 @@ const {
   OPEN_RESET_MODAL,
   CLOSE_RESET_MODAL
 } = resetPasswordActionTypes;
+const { GET_PROFILE, PROFILE_LOADING, UPDATE_PROFILE } = profileActionTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -73,5 +75,11 @@ export {
   RESET_PASSWORD_FAILURE,
   GET_RESET_TOKEN,
   OPEN_RESET_MODAL,
-  CLOSE_RESET_MODAL
+  CLOSE_RESET_MODAL,
+  auth,
+  navBarActionTypes,
+  modalTypes,
+  GET_PROFILE,
+  PROFILE_LOADING,
+  UPDATE_PROFILE
 };
