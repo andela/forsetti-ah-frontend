@@ -9,6 +9,7 @@ import { resetPasswordReducers } from './resetPasswordReducers';
 import profileReducer from './profileReducers';
 
 import notificationReducers from './notifcationReducers';
+import { emailShareModalReducer } from './emailShareModalReducers';
 
 const Reducer = combineReducers({
   showSideDrawer: navBarReducer,
@@ -19,7 +20,8 @@ const Reducer = combineReducers({
   createArticle: createArticleReducer,
   notifications: notificationReducers,
   reset: resetPasswordReducers,
-  profile: profileReducer
+  profile: profileReducer,
+  emailShareModal: emailShareModalReducer
 });
 
 export {

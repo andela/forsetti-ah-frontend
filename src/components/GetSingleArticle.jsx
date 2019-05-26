@@ -6,6 +6,8 @@ import Comments from './Comments';
 import ArticleHeader from './ArticleHeader';
 import ArticleBody from './ArticleBody';
 import Notfound from './NotFound';
+import { openEmailShareModal, openModalAction } from '../actions';
+import { EmailShareModalComponent } from './EmailShareModal';
 
 export class GetSingleArticle extends Component {
   async componentDidMount() {
@@ -23,6 +25,15 @@ export class GetSingleArticle extends Component {
     document.title = title || 'Home to the creative | Authors Haven';
     await getOneArticle(slug);
   }
+
+  openModal = () => {
+    const { openEmailShareModalAction, openLoginModalAction } = this.props;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return openLoginModalAction();
+    }
+    return openEmailShareModalAction();
+  };
 
   render() {
     const {
@@ -46,7 +57,11 @@ export class GetSingleArticle extends Component {
         readingTime,
         title,
         image: articleImage,
-        createdAt
+        createdAt,
+        slug
+      },
+      emailShareModal: {
+        showEmailShareModal
       }
     } = this.props;
 
@@ -59,7 +74,7 @@ export class GetSingleArticle extends Component {
       createdAt
     };
     const bodyProps = {
-      body, claps
+      body, claps, title, shareModal: this.openModal
     };
     return (
       <Fragment>
@@ -68,6 +83,10 @@ export class GetSingleArticle extends Component {
           <ArticleBody {...bodyProps} />
           <Comments />
         </div>
+        <EmailShareModalComponent
+          isOpen={showEmailShareModal}
+          slug={slug}
+        />
       </Fragment>
     );
   }
@@ -75,9 +94,12 @@ export class GetSingleArticle extends Component {
 
 export const mapStateToProps = state => ({
   article: state.article,
+  emailShareModal: state.emailShareModal
 });
 
 export const mapDispatchToProps = {
-  getOneArticle: getSingleArticle
+  getOneArticle: getSingleArticle,
+  openEmailShareModalAction: openEmailShareModal,
+  openLoginModalAction: openModalAction
 };
 export const SingleArticle = connect(mapStateToProps, mapDispatchToProps)(withRouter(GetSingleArticle));

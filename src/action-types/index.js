@@ -7,6 +7,7 @@ import articleActionTypes from './articleActionTypes';
 import createArticleActionTypes from './articles.action-type';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
 import profileActionTypes from './profileActionTypes';
+import emailShareModalTypes from './emailShareModalTypes';
 
 const {
   LOGIN_USER_BEGIN,
@@ -39,6 +40,13 @@ const {
   CLOSE_RESET_MODAL
 } = resetPasswordActionTypes;
 const { GET_PROFILE, PROFILE_LOADING, UPDATE_PROFILE } = profileActionTypes;
+const {
+  OPEN_EMAIL_SHARE_MODAL,
+  CLOSE_EMAIL_SHARE_MODAL,
+  EMAIL_SHARE_BEGINS,
+  EMAIL_SHARE_SUCCESS,
+  EMAIL_SHARE_FAIL
+} = emailShareModalTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -81,5 +89,10 @@ export {
   modalTypes,
   GET_PROFILE,
   PROFILE_LOADING,
-  UPDATE_PROFILE
+  UPDATE_PROFILE,
+  OPEN_EMAIL_SHARE_MODAL,
+  CLOSE_EMAIL_SHARE_MODAL,
+  EMAIL_SHARE_BEGINS,
+  EMAIL_SHARE_SUCCESS,
+  EMAIL_SHARE_FAIL
 };

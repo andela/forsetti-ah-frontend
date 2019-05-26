@@ -1,16 +1,22 @@
 import React from 'react';
 import {
-  google,
+  FacebookShareButton,
+  TwitterShareButton,
+} from 'react-share';
+
+import {
   facebook,
   twitter,
-  clapBlack,
-  clapWhite,
   bookmarkWhite,
   hands,
-  user
+  email
 } from '../assets';
 
-const ArticleBody = ({ body, claps }) => (
+const url = 'https://forsetti-ah-frontend-staging.herokuapp.com/';
+
+const ArticleBody = ({
+  body, claps, title, shareModal
+}) => (
   <div className='row article-section mt-3 '>
     <div
       className='article-body col-sm-10 col-md-10 col-lg-9
@@ -29,20 +35,36 @@ const ArticleBody = ({ body, claps }) => (
             </span>
           </a>
         </span>
-        <span className='col-md-12 col-2 rounded-circle'>
-          <a href='/'>
-            <img src={google} alt='google' className='h-50 py-md-2 social-icon' />
-          </a>
+        <span
+          className='col-md-12 col-2 rounded-circle'
+          onClick={shareModal}
+          role='button'
+          tabIndex='0'
+          onKeyDown={null}
+        >
+          <img
+            src={email}
+            alt='google'
+            className='py-md-2 social-icon'
+          />
         </span>
         <span className='col-md-12 col-2 rounded-circle '>
-          <a href='/'>
+          <FacebookShareButton
+            quote={title}
+            url={`${url}/article/${title}`}
+            className='share'
+          >
             <img src={facebook} alt='facebook' className='h-50 py-md-2 social-icon' />
-          </a>
+          </FacebookShareButton>
         </span>
         <span className='col-md-12 col-2 rounded-circle '>
-          <a href='/'>
+          <TwitterShareButton
+            url={`${url}/article/${title}`}
+            title={title}
+            className='share'
+          >
             <img src={twitter} alt='twitter' className='h-50 py-md-2 social-icon' />
-          </a>
+          </TwitterShareButton>
         </span>
         <span className='col-md-12 col-1 rounded-circle '>
           <a href='/'>
