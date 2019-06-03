@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Skeleton from 'react-skeleton-loader';
-import { Link } from 'react-router-dom';
 import { getUserNotifications } from '../actions';
 import NotificationCard from '../components/common/noficationCard';
 /**
