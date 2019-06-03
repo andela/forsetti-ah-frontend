@@ -10,6 +10,6 @@ describe('<Articles />', () => {
       loadMore: jest.fn()
     };
     const tree = shallow(<Articles {...props} />);
-    expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot(); 
   });
 });

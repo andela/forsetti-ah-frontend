@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCurrentProfile } from '../actions/profileActions';
+import { getCurrentProfile, openReadStatsModal } from '../actions/profileActions';
 import emptyUserImage from '../assets/svg/profilepix.svg';
 import Button from './common/Button';
 import ArticleListComponent from './common/ArticleList';
+import { ReadStatsComponent } from './ReadStats';
 
 class UserProfile extends Component {
   componentDidMount() {
@@ -19,8 +20,13 @@ class UserProfile extends Component {
     currentProfile(id);
   }
 
+  openReadStatsModal = () => {
+    const { openModal } = this.props;
+    openModal();
+  }
+
   render() {
-    const { profile, loading } = this.props;
+    const { profile, loading, isReadStatsModalOpen } = this.props;
     const {
       props: {
         profile: {
@@ -32,7 +38,7 @@ class UserProfile extends Component {
           userObject: {
             id: userId
           }
-        },
+        }
       }
     } = this;
     const {
@@ -48,9 +54,9 @@ class UserProfile extends Component {
       image,
       following
     } = data[0] || {};
-
     return (
       <React.Fragment>
+        <ReadStatsComponent readList={articlesReadList} />
         <div className='Profile py-5'>
           <div className='container'>
             <div className='row mt-5'>
@@ -98,7 +104,12 @@ class UserProfile extends Component {
             <div className='row justify-content-center my-5'>
               <div className='col-6 col-md-3 text-center'>
                 <div className='card shadow bg-white card-hover'>
-                  <div className='row py-md-4 mask flex-center'>
+                  <div
+                    className='row py-md-4 mask flex-center'
+                    onClick={this.openReadStatsModal}
+                    onKeyDown={this.openReadStatsModal}
+                    role='button'
+                  >
                     <div className='col-md-12'>
                       <span>{articlesRead}</span>
                     </div>
@@ -181,11 +192,13 @@ class UserProfile extends Component {
   }
 }
 const mapDispatchToProps = {
-  currentProfile: getCurrentProfile
+  currentProfile: getCurrentProfile,
+  openModal: openReadStatsModal,
 };
 
 export const mapStateToProps = state => ({
   profile: state.profile,
+  isReadStatsModalOpen: state.profile.isReadStatsModalOpen,
   auth: state.auth
 });
 

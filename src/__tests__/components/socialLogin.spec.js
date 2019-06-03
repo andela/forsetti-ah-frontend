@@ -19,6 +19,6 @@ describe('<SocialLogin />', () => {
   });
   it('renders correctly when there are no props', () => {
     const tree = renderer.create(<SocialLogin />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot(); 
   });
 });
