@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import Skeleton from 'react-skeleton-loader';
-import { getAritlces, openModalAction } from '../actions';
+import { getAritlces, openModalAction, getUserNotifications } from '../actions';
 import {
   Articles,
   SignUpModalComponent,
@@ -22,8 +22,9 @@ class LandingPage extends Component {
 
   componentDidMount() {
     const { props: { history: { action } } } = this;
-    const { getAllArticles, openModal } = this.props;
+    const { getAllArticles, openModal, getNotifications } = this.props;
     const { pageCount } = this.state;
+    getNotifications();
     getAllArticles(pageCount);
     if (action === 'REPLACE') openModal();
   }
@@ -92,13 +93,23 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { articles } = state;
-  const { showSideDrawer, modal } = state;
-  return { articles, showSideDrawer, modal };
+  const {
+    showSideDrawer,
+    modal,
+    notifications,
+    articles
+  } = state;
+  return {
+    articles,
+    showSideDrawer,
+    modal,
+    notifications
+  };
 };
 const mapDispatchToProps = {
   openModal: openModalAction,
-  getAllArticles: page => getAritlces(page)
+  getAllArticles: page => getAritlces(page),
+  getNotifications: getUserNotifications
 };
 const LandingPageComponent = connect(mapStateToProps, mapDispatchToProps)(LandingPage);
 

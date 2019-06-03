@@ -19,7 +19,8 @@ describe('<LandingPage />', () => {
     history: {
       action: 'POP'
     },
-    openModal: jest.fn()
+    openModal: jest.fn(),
+    getNotifications: jest.fn()
   };
 
   it('renders correctly', () => {
@@ -43,7 +44,8 @@ describe('<LandingPage />', () => {
       history: {
         action: 'REPLACE'
       },
-      openModal: jest.fn()
+      openModal: jest.fn(),
+      getNotifications: jest.fn()
     };
     const LandingPageComponent = shallow(<LandingPage {...props} />);
     expect(props.openModal).toHaveBeenCalled();
