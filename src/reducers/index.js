@@ -7,6 +7,7 @@ import singleArticleReducer from './articleReducer';
 import createArticleReducer from './createArticle.reducers';
 import { resetPasswordReducers } from './resetPasswordReducers';
 import profileReducer from './profileReducers';
+import bookmarkReducer from './bookmarkReducer';
 
 import notificationReducers from './notifcationReducers';
 
@@ -19,7 +20,8 @@ const Reducer = combineReducers({
   createArticle: createArticleReducer,
   notifications: notificationReducers,
   reset: resetPasswordReducers,
-  profile: profileReducer
+  profile: profileReducer,
+  bookmark: bookmarkReducer
 });
 
 export {

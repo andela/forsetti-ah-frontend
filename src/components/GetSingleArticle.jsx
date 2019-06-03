@@ -6,9 +6,14 @@ import Comments from './Comments';
 import ArticleHeader from './ArticleHeader';
 import ArticleBody from './ArticleBody';
 import Notfound from './NotFound';
+import { bookmarkArticle } from '../actions';
 
 export class GetSingleArticle extends Component {
-  async componentDidMount() {
+  componentDidMount() {
+    this.getSingle();
+  }
+
+  getSingle = () => {
     const {
       getOneArticle,
       match: {
@@ -18,17 +23,29 @@ export class GetSingleArticle extends Component {
       },
       article: {
         title
-      }
+      },
+      token
     } = this.props;
     document.title = title || 'Home to the creative | Authors Haven';
-    await getOneArticle(slug);
+    getOneArticle(slug, token);
+  }
+
+  bookmark = () => {
+    const {
+      createBookmark,
+      article: {
+        id
+      }
+    } = this.props;
+    createBookmark(id);
+    this.getSingle();
   }
 
   render() {
     const {
       article: {
         success
-      }
+      },
     } = this.props;
     if (!success) {
       return (
@@ -36,9 +53,10 @@ export class GetSingleArticle extends Component {
       );
     }
     const {
+      status,
       article: {
         author: {
-          image,
+          image = '',
           username
         },
         body,
@@ -46,7 +64,9 @@ export class GetSingleArticle extends Component {
         readingTime,
         title,
         image: articleImage,
-        createdAt
+        createdAt,
+        id,
+        Bookmarked
       }
     } = this.props;
 
@@ -59,7 +79,12 @@ export class GetSingleArticle extends Component {
       createdAt
     };
     const bodyProps = {
-      body, claps
+      body,
+      claps,
+      id,
+      bookmark: this.bookmark,
+      status,
+      Bookmarked
     };
     return (
       <Fragment>
@@ -75,9 +100,11 @@ export class GetSingleArticle extends Component {
 
 export const mapStateToProps = state => ({
   article: state.article,
+  token: state.auth.token
 });
 
 export const mapDispatchToProps = {
-  getOneArticle: getSingleArticle
+  getOneArticle: getSingleArticle,
+  createBookmark: bookmarkArticle
 };
 export const SingleArticle = connect(mapStateToProps, mapDispatchToProps)(withRouter(GetSingleArticle));

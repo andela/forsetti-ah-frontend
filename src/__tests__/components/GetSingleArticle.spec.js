@@ -30,6 +30,14 @@ const error = {
   }
 }
 
+const auth = {
+  article: {
+    article: ''
+  },
+  auth: {
+    token: 'jhkjkjhjh'
+  }
+}
 describe('Get single article component', () => {
   test('should render get single article component', () => {
     const wrapper = shallow(<GetSingleArticle
@@ -56,9 +64,10 @@ describe('Get single article component', () => {
   });
 
   test('should return mapStateToProps object', () => {
-    const action = mapStateToProps(article);
+    const action = mapStateToProps(auth);
     expect(action).toEqual({
-      article: article.article
+      article: auth.article,
+      token: auth.auth.token,
     });
   });
 });
