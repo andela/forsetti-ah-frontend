@@ -5,12 +5,13 @@ import { getUserData, closeModalAction } from '../actions';
 class AuthSocial extends Component {
   /**
    * Save token to storage and redirect user
+   * param {string} token
    */
   LoginUser = (token) => {
     window.localStorage.setItem('token', token);
     const { history, dispatch } = this.props;
     dispatch(closeModalAction());
-    history.push('/dashboard');
+    history.push('/');
   }
 
   /**
