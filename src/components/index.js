@@ -13,6 +13,7 @@ import Articles from './Articles';
 import SocialLogin from './SocialLogin';
 import NotFound from './NotFound';
 import SignUpModalComponent from './SignUpModal';
+import ArticleTopRated from './ArticleTopRated';
 
 export {
   HeaderComponent,
@@ -29,5 +30,6 @@ export {
   Articles,
   SocialLogin,
   NotFound,
-  SignUpModalComponent
+  SignUpModalComponent,
+  ArticleTopRated
 };

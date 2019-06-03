@@ -3,7 +3,8 @@ import {
   GET_ARTICLES_FAIL,
   GET_ARTICLES_BEGIN,
   GET_SINGLE_ARTICLE,
-  ARTICLE_NOT_FOUND
+  ARTICLE_NOT_FOUND,
+  GET_TOP_RATED
 } from '../action-types';
 import axios from '../config/axiosConfig';
 
@@ -60,6 +61,17 @@ const getSingleArticle = (slug, token) => async (dispatch) => {
   }
 };
 
+const topRatedArticles = (payload = []) => ({
+  type: GET_TOP_RATED,
+  payload
+});
+
+const getTopRatedArticles = () => async (dispatch) => {
+  const res = await axios.get('article/topfeed');
+
+  return dispatch(topRatedArticles(res.data.data.article));
+};
+
 export {
   getSingleArticle,
   singleArticle,
@@ -67,5 +79,7 @@ export {
   loadingStateHandler,
   getAritlcesSuccessHandler,
   getAritlcesFailureHandler,
-  articleNotFound
+  articleNotFound,
+  getTopRatedArticles,
+  topRatedArticles
 };

@@ -7,3 +7,12 @@
 .landing {
   min-height: 100vh;
 }
+.top {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .top {
+    display: block;
+  }
+}

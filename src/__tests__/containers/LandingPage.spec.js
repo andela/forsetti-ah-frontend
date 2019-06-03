@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { articles as articlesMock } from '../../testUtils/testsMockData/articles.mock-data';
-import { LandingPage } from '../../containers/LandingPage';
+import { LandingPage, mapStateToProps } from '../../containers/LandingPage';
 
 describe('<LandingPage />', () => {
+  beforeAll(() => {  
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => { return { matches: true } })
+    });
+  });
+
   const props = {
     showSideDrawer: {
       showSideDrawer: false,
@@ -19,7 +25,11 @@ describe('<LandingPage />', () => {
     history: {
       action: 'POP'
     },
-    openModal: jest.fn()
+    openModal: jest.fn(),
+    topRatedArticles: jest.fn(),
+    topArticles: {
+      topRated: []
+    }
   };
 
   it('renders correctly', () => {
@@ -43,9 +53,25 @@ describe('<LandingPage />', () => {
       history: {
         action: 'REPLACE'
       },
-      openModal: jest.fn()
+      openModal: jest.fn(),
+      topRatedArticles: jest.fn(),
+      topArticles: {
+        topRated: []
+      }
     };
     const LandingPageComponent = shallow(<LandingPage {...props} />);
     expect(props.openModal).toHaveBeenCalled();
-  })
+  });
+
+  test('should return mapStateToProps object', () => {
+    const state = {
+      articles: {},
+      topArticles: {}
+    };
+    const action = mapStateToProps(state);
+    expect(action).toEqual({
+      articles: state.articles,
+      topArticles: state.topArticles
+    });
+  });
 });

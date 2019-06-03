@@ -4,6 +4,11 @@ import { BaseLayoutComponent } from '../../../components/common/BaseLayout';
 
 describe('<BaseLayout />', () => {
   it('renders correctly', () => {
+    beforeAll(() => {  
+      Object.defineProperty(window, "matchMedia", {
+        value: jest.fn(() => { return { matches: true } })
+      });
+    });
     const props = {
       showSideDrawer: true,
       modal: {

@@ -1,4 +1,9 @@
-import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAIL, GET_ARTICLES_BEGIN } from '../action-types';
+import {
+  GET_ARTICLES_SUCCESS,
+  GET_ARTICLES_FAIL,
+  GET_ARTICLES_BEGIN,
+  GET_TOP_RATED
+} from '../action-types';
 
 const initialState = {
   isLoading: false,
@@ -36,4 +41,21 @@ const articleReducer = (state = initialState, action) => {
   }
 };
 
-export { articleReducer, initialState };
+const defualtTopRatedArticles = [];
+
+const getTopRatedReducer = (state = defualtTopRatedArticles, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case GET_TOP_RATED:
+      return {
+        ...state,
+        topRated: payload
+      };
+
+    default:
+      return state;
+  }
+};
+
+export { articleReducer, initialState, getTopRatedReducer };
