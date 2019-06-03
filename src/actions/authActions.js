@@ -6,7 +6,8 @@ import {
   GET_USER_DATA_FAIL,
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
-  SIGNUP_FAILURE
+  SIGNUP_FAILURE,
+  LOGOUT_USER
 } from '../action-types';
 
 import axios from '../config/axiosConfig';
@@ -74,6 +75,14 @@ const signupFailure = (message = {}) => ({
 
 // action-creators
 /**
+ * User Logout handler
+ * @param {object} payload
+ */
+const logoutHandler = () => ({
+  type: LOGOUT_USER,
+});
+
+/**
  * @param {object} loginObject email and password object
  * @param {boolean} rememberLogin
  * @returns {function} dispatch functions
@@ -127,6 +136,11 @@ const signUpUser = user => async (dispatch) => {
     return dispatch(signupFailure(message));
   }
 };
+const logoutUser = () => async (dispatch) => {
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('rememberToken');
+  await dispatch(logoutHandler());
+};
 
 export {
   getUserData,
@@ -137,4 +151,6 @@ export {
   signupSuccess,
   signupFailure,
   signUpUser,
+  logoutUser,
+  logoutHandler
 };

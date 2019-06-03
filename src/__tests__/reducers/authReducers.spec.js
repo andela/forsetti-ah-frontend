@@ -1,6 +1,11 @@
 import { authReducer, initialState } from '../../reducers/authReducer';
 
-import { LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE }  from '../../action-types';
+import {
+  LOGIN_USER_BEGIN,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE,
+  LOGOUT_USER
+} from '../../action-types';
 
 const successState = {
   isLoading: false,
@@ -107,5 +112,13 @@ describe('Auth reducer', () => {
       status: 422,
       message: 'Something strange is happening.',
     })
+  });
+
+  it('should should return user logout object', () => {
+    const reducer = authReducer(initialState, {
+      type: LOGOUT_USER,
+    });
+
+    expect(reducer).toEqual(initialState);
   });
 });

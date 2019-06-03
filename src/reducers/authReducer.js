@@ -3,7 +3,8 @@ import {
   GET_USER_DATA_FAIL,
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
-  SIGNUP_FAILURE
+  SIGNUP_FAILURE,
+  LOGOUT_USER
 } from '../action-types';
 
 const initialState = {
@@ -92,6 +93,11 @@ const authReducer = (state = initialState, action) => {
         message: action.message,
         isLoading: false
       };
+    case LOGOUT_USER:
+      return {
+        ...initialState,
+      };
+
     default:
       return {
         ...state,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Button,
   UncontrolledDropdown,
@@ -12,7 +12,8 @@ import HorizontalListItems from './HorizontalListItems';
 import {
   openModalAction,
   openTagsModal,
-  openSignupModalAction
+  openSignupModalAction,
+  logoutUser
 } from '../../actions';
 import { notificationBlue } from '../../assets';
 import NavBarItems from './NavBarItems';
@@ -25,11 +26,17 @@ const Header = (props) => {
     notifications: {
       count = 0
     },
-    history
+    history,
   } = props;
   const openLoginModal = () => dispatch(openModalAction());
   const openSignupModal = () => dispatch(openSignupModalAction());
   const openArticleTagsModal = () => dispatch(openTagsModal());
+
+  const Logout = () => {
+    dispatch(logoutUser());
+    window.location.reload();
+  };
+
   const linkItems = [
     { no: 1, name: 'Tech' },
     { no: 2, name: 'Philosophy' },
@@ -105,7 +112,7 @@ const Header = (props) => {
                     <DropdownItem style={{ backgroundColor: 'transparent', color: 'black' }}>Profile</DropdownItem>
                   </Link>
                   <DropdownItem divider />
-                  <DropdownItem>Logout</DropdownItem>
+                  <DropdownItem onClick={Logout}>Logout</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </div>

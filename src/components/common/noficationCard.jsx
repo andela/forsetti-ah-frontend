@@ -23,7 +23,7 @@ const typeCheck = (type, id, articleSlug) => {
         </Link>
       );
     default:
-      return (<Link className='btn btn_primary rounded-1 col-12 my-1 py-1' to={`/profiles/${id}`}> View </Link>);
+      return (<Link className='btn btn_primary rounded-1 col-12 my-1 py-1' to='/profile'> View </Link>);
   }
 };
 
