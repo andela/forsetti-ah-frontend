@@ -1,14 +1,12 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import MockAdapter from 'axios-mock-adapter';
-import axiosInstance from '../../config/axiosConfig';
+import instance from '../../config/axiosConfig';
 import { createArticleActionTypes } from '../../action-types';
 import { setLoading, createArticle, createArticleError } from '../../actions';
 
 const { CREATE_ARTICLE_LOADING, CREATE_ARTICLE, CREATE_ARTICLE_ERROR } = createArticleActionTypes;
-const mock = new MockAdapter(axiosInstance);
 const mockStore = configureMockStore([thunk]);
-const store = mockStore();
+const store = mockStore({});
 
 const articleInfo = {
   title: 'sample',
@@ -40,10 +38,6 @@ describe('create article actions', () => {
     store.clearActions();
   });
 
-  afterEach(() => {
-    mock.reset();
-  });
-
   test('it should return correct action for loading state', () => {
     const action = setLoading(true);
     expect(action).toEqual({
@@ -61,7 +55,7 @@ describe('create article actions', () => {
   });
 
   test('should dispatch CREATE_ARTICLE on successfull post', () => {
-    mock.onPost('/article').reply(201, mockPayload);
+    instance.post = jest.fn().mockReturnValue(Promise.resolve({ data: mockPayload }));
 
     const expectedAction = [
       {
@@ -75,25 +69,22 @@ describe('create article actions', () => {
     ];
 
     store.dispatch(createArticle(articleInfo)).then(() => {
-      expect(store.getActions()).toEqual(expectedAction);
+      expect(store.getActions()[0].type).toEqual(expectedAction[0].type);
+      expect(store.getActions()[1].type).toEqual(expectedAction[1].type);
     });
   });
 
   test('should dispatch CREATE_ARTICLE_ERROR on error response', () => {
-    mock.onPost('/article').reply(500, mockPayload);
+    instance.post = jest.fn().mockReturnValue(Promise.reject({ response: { data: { message: 'error message' } } }));
 
     const expectedAction = [
       {
         type: CREATE_ARTICLE_LOADING,
         payload: true
-      },
-      {
-        type: CREATE_ARTICLE_LOADING,
-        payload: false
-      },
+      }
     ];
 
-    store.dispatch(createArticle(articleInfo)).catch(() => {
+    return store.dispatch(createArticle(articleInfo)).catch(() => {
       expect(store.getActions()).toEqual(expectedAction);
     });
   })

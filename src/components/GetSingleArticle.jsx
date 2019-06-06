@@ -2,11 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getSingleArticle } from '../actions/articleActions';
-import Comments from './Comments';
+import { postComment, postThreadComment, bookmarkArticle } from '../actions';
 import ArticleHeader from './ArticleHeader';
 import ArticleBody from './ArticleBody';
+import Comments from './Comments';
+import CommentSection from './CommentSection';
 import Notfound from './NotFound';
-import { bookmarkArticle } from '../actions';
 
 export class GetSingleArticle extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ export class GetSingleArticle extends Component {
       token
     } = this.props;
     document.title = title || 'Home to the creative | Authors Haven';
-    getOneArticle(slug, token);
+    getSingleArticle(slug, token);
   }
 
   bookmark = () => {
@@ -67,7 +68,16 @@ export class GetSingleArticle extends Component {
         createdAt,
         id,
         Bookmarked
-      }
+      },
+      comments,
+      commentCount,
+      commentLoading,
+      postNewComment,
+      postNewThreadComment,
+      token
+    } = this.props;
+    const {
+      match: { params: { slug } }, history
     } = this.props;
 
     const headerProps = {
@@ -76,7 +86,7 @@ export class GetSingleArticle extends Component {
       username,
       readingTime,
       articleImage,
-      createdAt
+      createdAt,
     };
     const bodyProps = {
       body,
@@ -91,7 +101,21 @@ export class GetSingleArticle extends Component {
         <ArticleHeader {...headerProps} />
         <div className='container'>
           <ArticleBody {...bodyProps} />
-          <Comments />
+          <Comments
+            slug={slug}
+            commentLoading={commentLoading}
+            postNewComment={postNewComment}
+            history={history}
+            token={token}
+          />
+          <CommentSection
+            slug={slug}
+            commentsList={comments}
+            commentCount={commentCount}
+            postNewThreadComment={postNewThreadComment}
+            history={history}
+            token={token}
+          />
         </div>
       </Fragment>
     );
@@ -100,11 +124,14 @@ export class GetSingleArticle extends Component {
 
 export const mapStateToProps = state => ({
   article: state.article,
+  commentLoading: state.comments.isLoading,
   token: state.auth.token
 });
 
 export const mapDispatchToProps = {
   getOneArticle: getSingleArticle,
-  createBookmark: bookmarkArticle
+  createBookmark: bookmarkArticle,
+  postNewComment: postComment,
+  postNewThreadComment: postThreadComment
 };
 export const SingleArticle = connect(mapStateToProps, mapDispatchToProps)(withRouter(GetSingleArticle));

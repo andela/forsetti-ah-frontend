@@ -31,8 +31,8 @@ describe('Create Article Reducer', () => {
   it('should return CREATE_ARTICLE_ERROR state when creation is unsuccessful', () => {
     expect(articleReducer(undefined, {
       type: CREATE_ARTICLE_ERROR,
-      payload
-    })).toEqual({ error: payload });
+      payload: 'error'
+    })).toEqual({ error: 'error', isLoading: false });
   });
 
   it('should return CREATE_ARTICLE on succesful post', () => {

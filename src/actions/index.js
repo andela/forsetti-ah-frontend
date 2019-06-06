@@ -50,6 +50,12 @@ import {
   openReadStatsModal,
   closeReadStatsModal
 } from './profileActions';
+import {
+  postComment,
+  postCommentError,
+  postThreadComment,
+  commentLoading
+} from './commentActions';
 
 export {
   showSideDrawerAction,
@@ -94,5 +100,9 @@ export {
   bookmarkArticleSuccessHandler,
   bookmarkArticleFailureHandler,
   openReadStatsModal,
-  closeReadStatsModal
+  closeReadStatsModal,
+  postComment,
+  postCommentError,
+  postThreadComment,
+  commentLoading
 };
