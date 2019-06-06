@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCurrentProfile, openReadStatsModal } from '../actions/profileActions';
+import { getCurrentProfile, toggleFollowerModal, openReadStatsModal } from '../actions';
 import emptyUserImage from '../assets/svg/profilepix.svg';
 import Button from './common/Button';
 import ArticleListComponent from './common/ArticleList';
@@ -23,6 +23,11 @@ class UserProfile extends Component {
   openReadStatsModal = () => {
     const { openModal } = this.props;
     openModal();
+  }
+
+  handleShowFollows = () => {
+    const { showFollowModal } = this.props;
+    showFollowModal('open');
   }
 
   render() {
@@ -131,7 +136,13 @@ class UserProfile extends Component {
                   </div>
                 </div>
               </div>
-              <div className='col-6 col-md-3 mt-3 mt-md-0 text-center'>
+              <div
+                className='col-6 col-md-3 mt-3 mt-md-0 text-center'
+                onClick={this.handleShowFollows}
+                onKeyDown={this.handleShowFollows}
+                role='button'
+                tabIndex='-1'
+              >
                 <div className='card shadow bg-white card-hover'>
                   <div className='row py-md-4'>
                     <div className='col-md-12'>
@@ -143,7 +154,13 @@ class UserProfile extends Component {
                   </div>
                 </div>
               </div>
-              <div className='col-6 col-md-3 mt-3 mt-md-0 text-center'>
+              <div
+                className='col-6 col-md-3 mt-3 mt-md-0 text-center'
+                onClick={this.handleShowFollows}
+                onKeyDown={this.handleShowFollows}
+                role='button'
+                tabIndex='-1'
+              >
                 <div className='card shadow bg-white card-hover'>
                   <div className='row py-md-4'>
                     <div className='col-md-12'>
@@ -194,12 +211,14 @@ class UserProfile extends Component {
 const mapDispatchToProps = {
   currentProfile: getCurrentProfile,
   openModal: openReadStatsModal,
+  showFollowModal: toggleFollowerModal
 };
 
 export const mapStateToProps = state => ({
   profile: state.profile,
   isReadStatsModalOpen: state.profile.isReadStatsModalOpen,
-  auth: state.auth
+  auth: state.auth,
+  followerModal: state.modal
 });
 
 const Profile = (connect(mapStateToProps, mapDispatchToProps)(UserProfile));

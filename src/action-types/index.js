@@ -8,6 +8,13 @@ import createArticleActionTypes from './articles.action-type';
 import resetPasswordActionTypes from './resetPasswordActionTypes';
 import profileActionTypes from './profileActionTypes';
 import bookmarkActionTypes from './bookmarkActionTypes';
+import {
+  getFollowerActionTypes,
+  getFollowingActionTypes,
+  followUserActionTypes,
+  unFollowUserActionTypes,
+  followModalActionsType
+} from './follow.action-type';
 
 const {
   LOGIN_USER_BEGIN,
@@ -48,6 +55,11 @@ const {
   OPEN_READ_STATS_MODAL,
   CLOSE_READ_STATS_MODAL
 } = profileActionTypes;
+const { GET_FOLLOWINGS_BEGIN, GET_FOLLOWINGS_SUCCESS, GET_FOLLOWINGS_FAILURE } = getFollowingActionTypes;
+const { OPEN_FOLLOWER_MODAL, CLOSE_FOLLOWER_MODAL } = followModalActionsType;
+const { FOLLOW_USER_BEGIN, FOLLOW_USER_SUCCESS, FOLLOW_USER_FAILURE } = followUserActionTypes;
+const { UNFOLLOW_USER_BEGIN, UNFOLLOW_USER_SUCCESS, UNFOLLOW_USER_FAILURE } = unFollowUserActionTypes;
+const { GET_FOLLOWERS_BEGIN, GET_FOLLOWERS_SUCCESS, GET_FOLLOWERS_FAILURE } = getFollowerActionTypes;
 
 export {
   SHOW_SIDEDRAWER,
@@ -92,5 +104,19 @@ export {
   BOOKMARK_ARTICLE_SUCCESS,
   BOOKMARK_ARTICLE_FAILURE,
   OPEN_READ_STATS_MODAL,
-  CLOSE_READ_STATS_MODAL
+  CLOSE_READ_STATS_MODAL,
+  GET_FOLLOWERS_BEGIN,
+  GET_FOLLOWERS_SUCCESS,
+  GET_FOLLOWERS_FAILURE,
+  GET_FOLLOWINGS_BEGIN,
+  GET_FOLLOWINGS_SUCCESS,
+  GET_FOLLOWINGS_FAILURE,
+  FOLLOW_USER_BEGIN,
+  FOLLOW_USER_FAILURE,
+  FOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_BEGIN,
+  UNFOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_FAILURE,
+  OPEN_FOLLOWER_MODAL,
+  CLOSE_FOLLOWER_MODAL
 };

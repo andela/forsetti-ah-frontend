@@ -15,6 +15,7 @@ import { showSideDrawerAction, hideSideDrawerAction } from '../../actions';
 import { AuthSocialComponent } from '../AuthSocial';
 import SignUpDefault from '../SignUpForm';
 import NotificationPage from '../../containers/NotificationPage';
+import { FollowerModalComponent } from '../FollowerModal';
 
 import { ForgotPassword } from '../resetPassword/ForgotPassword';
 import GetResetPasswordToken from '../resetPassword/GetResetPasswordToken';
@@ -33,12 +34,13 @@ const BaseLayoutComponent = ({
     dispatch(hideSideDrawerAction());
   };
   const { showSideDrawer: showSideDraw } = showSideDrawer;
-  const { showModal } = modal;
+  const { showModal, followModal } = modal;
   const { isModalOpen, isResetModalOpen } = reset;
   return (
     <Router>
       <SideDrawerComponent show={showSideDraw} closed={hideSideDrawerHandler} />
       <LoginModal isOpen={showModal} />
+      <FollowerModalComponent isOpen={followModal} />
       <HeaderComponent clicked={showSideDrawerHandler} />
       <ForgotPassword isOpen={isModalOpen} />
       <ResetPassword isOpen={isResetModalOpen} />
