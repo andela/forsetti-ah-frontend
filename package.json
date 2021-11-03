@@ -100,6 +100,6 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   }
 }
